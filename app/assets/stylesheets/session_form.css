@@ -1,0 +1,79 @@
+.sessionFormPanel {
+  display: flex;
+  justify-content: center;
+}
+
+.sessionForm {
+  width: 450px;
+}
+
+.sessionForm  ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  margin-top: 100px;
+  padding: 10px;
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,0.1);
+  border-radius: 0.6rem;
+  color: #283c46;
+}
+
+.sessionForm >ul > li:first-child {
+  margin-top: 15px;
+}
+
+.sessionForm li {
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.sessionForm h2, label {
+  font-family: 'Martel Sans', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+}
+
+li.inputLabel {
+  text-align: left;
+  margin-left: 2rem;
+  margin-bottom: -5px;
+}
+
+.sessionForm label {
+  font-family: 'Martel Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.sessionForm span {
+  font-family: 'Martel Sans', sans-serif;
+  font-weight: 400;
+}
+
+.sessionForm input {
+  margin: 2px 0;
+  width: 90%;
+  border: 1px solid #bfbfbf;
+  border-radius: 4px;
+  padding: 8px 5px;
+  text-align: left;
+  font-family: 'Martel Sans', sans-serif;
+  font-weight: 400;
+}
+.sessionForm input:focus {
+  border: 1px solid #D9F4FB;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+.sessionForm a {
+  text-decoration: underline;
+  color: blue;
+}
+
+button.CTAbutton {
+  font-size: 1.5rem;
+  padding: 0.6rem 10.1rem;
+  margin-bottom: 5px;
+}

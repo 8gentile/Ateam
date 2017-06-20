@@ -1,0 +1,12 @@
+.bodySection {
+  background: #F5EFE6;
+  height: 100vh;
+}
+
+.CTAbutton {
+  font-family: 'Righteous', cursive;
+  color: white;
+  background: #3cb371;
+  border-bottom-color: rgba(0,0,0,0.15);
+  border-radius: 0.4rem;
+}

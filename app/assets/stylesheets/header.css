@@ -1,0 +1,42 @@
+/*******************************************
+  HEADER
+********************************************/
+.header {
+  display: flex;
+  justify-content: space-around;
+  background: #FBF8F4;
+}
+
+.logo {
+  font-family: 'Righteous', sans-serif;
+  font-size: 30px;
+  color: #197944;
+}
+
+.authNav {
+  display: flex;
+  width: 25%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.authNav span {
+  font-family: 'Martel Sans', sans-serif;
+  font-weight: 400;
+}
+
+.authButton {
+  margin: 1px solid #FBF8F4;
+  padding: 0 .5rem;
+  background: #FBF8F4;
+  color: #197944;
+  border-radius: 7px 7px 7px 7px;
+  font-family: 'Martel Sans', sans-serif;
+  font-weight: 400;
+  transition: color 0.25s;
+}
+
+.authButton:hover {
+  color: #197944;
+  background: #FFFFFF;
+}
