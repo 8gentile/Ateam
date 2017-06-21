@@ -2,15 +2,21 @@ import React from 'react';
 import merge from 'lodash/merge';
 import { withRouter, Link } from 'react-router-dom';
 
-class SessionForm extends React.Component {
+class SignupForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			email: "",
+      fname: "",
+      lname: "",
 			password: ""
 		};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.errors = [];
   }
 
   handleSubmit(e){
@@ -44,10 +50,10 @@ class SessionForm extends React.Component {
           <ul>
             {this.errors()}
             <li>
-              <h2>Login to Äteam!</h2>
+              <h2>Welcome to Äteam!</h2>
             </li>
             <li>
-              <span>Please login, <Link to="/signup"> or signup instead</Link></span>
+              <span>Please signup, <Link to="/login"> or login instead</Link></span>
             </li>
             <li className="inputLabel">
               <label>Email</label>
@@ -58,6 +64,27 @@ class SessionForm extends React.Component {
                 value={this.state.email}
                 placeholder="peter@docreader.com"/>
             </li>
+
+            <li className="inputLabel">
+              <label>First Name</label>
+            </li>
+            <li>
+              <input
+                onChange={this.handleChange("fname")}
+                value={this.state.fname}
+                placeholder="Peter"/>
+            </li>
+
+            <li className="inputLabel">
+              <label>Last Name</label>
+            </li>
+            <li>
+              <input
+                onChange={this.handleChange("lname")}
+                value={this.state.lname}
+                placeholder="Davidson"/>
+            </li>
+
             <li className="inputLabel">
               <label>Password</label>
             </li>
@@ -67,13 +94,12 @@ class SessionForm extends React.Component {
                 value={this.state.password} />
             </li>
             <li>
-              <button className="CTAbutton">Log In</button>
+              <button className="CTAbutton">Sign Up</button>
             </li>
           </ul>
-
         </form>
       </section>
     );
   }
 }
-export default withRouter(SessionForm);
+export default withRouter(SignupForm);

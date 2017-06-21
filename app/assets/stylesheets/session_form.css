@@ -52,6 +52,14 @@ li.inputLabel {
   font-weight: 400;
 }
 
+.sessionForm p {
+  padding: 0.33em 1em;
+  border-radius: 3rem;
+  color: #fff;
+  text-align: center;
+  background-color: rgb(61, 60, 58);
+}
+
 .sessionForm input {
   margin: 2px 0;
   width: 90%;
