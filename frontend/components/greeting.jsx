@@ -8,24 +8,11 @@ export default class Greeting extends React.Component {
     this.state = {
       dropdown: false,
     };
-
     this.handleClick = this.handleClick.bind(this);
     this.toggleDropdown = this.toggleDropdown.bind(this);
-    this.fullName = this.fullName.bind(this);
-  }
-
-  fullName(){
-    let name = "";
-    name += this.props.currentUser.fname[0].toUpperCase();
-    name += this.props.currentUser.fname.slice(1);
-    name += " ";
-    name += this.props.currentUser.lname[0].toUpperCase();
-    name += this.props.currentUser.lname.slice(1);
-    return name;
   }
 
   toggleDropdown(){
-    // is false
     if (!this.state.dropdown) {
       this.setState({ dropdown: true });
     } else {

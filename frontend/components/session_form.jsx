@@ -9,6 +9,8 @@ class SessionForm extends React.Component {
 			email: "",
 			password: ""
 		};
+
+    this.props.clearErrors();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -25,6 +27,10 @@ class SessionForm extends React.Component {
       this.setState({ [field]: e.currentTarget.value });
     };
   }
+
+  // componentDidMount() {
+  //   this.props.clearErrors();
+  // }
 
   errors(){
     if (this.props.errors) {

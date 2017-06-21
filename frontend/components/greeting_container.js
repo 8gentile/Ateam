@@ -8,7 +8,7 @@ const mapStateToProps = ({ session }) => {
 
 const mapDispatchToProps = ( dispatch ) => {
   return {
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
   }
 }
 

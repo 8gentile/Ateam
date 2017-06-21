@@ -9,8 +9,10 @@ const App = () => {
   return (
     <div>
       <header className="header">
-        <h1 className="logo">Äteam</h1>
-        <Greeting />
+        <div className="header-items">
+          <h1 className="logo">Äteam</h1>
+          <Greeting />
+        </div>
       </header>
       <section className="bodySection">
         <AuthRoute exact path="/login" component={ SessionForm } />

@@ -11,12 +11,10 @@ class SignupForm extends React.Component {
       lname: "",
 			password: ""
 		};
+    this.props.clearErrors();
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-  }
-
-  componentDidMount(){
-    this.props.errors = [];
   }
 
   handleSubmit(e){

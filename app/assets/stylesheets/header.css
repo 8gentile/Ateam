@@ -7,6 +7,16 @@
   background: #FBF8F4;
 }
 
+.header-items {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.header-items nav {
+  display: flex;
+}
+
 .logo {
   font-family: 'Righteous', sans-serif;
   font-size: 30px;

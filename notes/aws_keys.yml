@@ -1,0 +1,9 @@
+development:
+  s3_bucket: "ateam-dev"
+
+production:
+  s3_bucket: "ateam-pro"
+
+s3_region: "us-east-2"
+s3_access_key_id: "XXXXXXXXXX"
+s3_secret_access_key: "XXXXXXXXXXXXXXXXXXX"
