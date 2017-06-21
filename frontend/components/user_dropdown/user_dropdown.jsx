@@ -27,7 +27,8 @@ export default class UserDropDown extends React.Component {
     return (
       <div className="user-dropdown">
         <ul>
-          <li>{this.fullName()}</li>
+          <li className="dropdown-header"><p><span>PERSONAL SETTINGS</span></p></li>
+          <li>My profile (avatar, name, email, etc)</li>
           <li onClick={this.props.logout}>Log Out</li>
         </ul>
       </div>
