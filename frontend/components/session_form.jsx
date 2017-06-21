@@ -67,7 +67,7 @@ class SessionForm extends React.Component {
                 value={this.state.password} />
             </li>
             <li>
-              <button className="CTAbutton">Log In</button>
+              <button className="CTAbutton">Log In </button>
             </li>
           </ul>
 
