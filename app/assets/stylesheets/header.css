@@ -15,6 +15,7 @@
 
 .header-items nav {
   display: flex;
+  position: relative;
 }
 
 .logo {
