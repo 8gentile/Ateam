@@ -1,9 +1,10 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Router, Route, hashHistory, IndexRoute } from 'react-router-dom';
 import { AuthRoute } from '../utils/route_util.jsx';
 import SessionForm from './session_form_container';
 import SignupForm from './signup_form_container';
 import Greeting from './greeting_container';
+import UserEdit from './user_edit/user_edit_container';
 
 const App = () => {
   return (
@@ -14,10 +15,11 @@ const App = () => {
           <Greeting />
         </div>
       </header>
-      <section className="bodySection">
-        <AuthRoute exact path="/login" component={ SessionForm } />
-        <AuthRoute exact path="/signup" component={ SignupForm } />
-      </section>
+        <section className="bodySection">
+          <AuthRoute exact path="/login" component={ SessionForm } />
+          <AuthRoute exact path="/signup" component={ SignupForm } />
+          <Route path="/users/:userId/edit" component={ UserEdit } />
+        </section>
     </div>
   );
 };
