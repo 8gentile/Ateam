@@ -71,8 +71,8 @@ Path    |     Component
 |--------:|:---------------|
 "/signup" | "AuthFormContainer"
 "/login" | "AuthFormContainer"
-"/:userId/teams" | "TeamIndexContainer"
-"/:userId/teams/:teamId" | "TeamContainer"
+"users/:userId" | "TeamIndexContainer"
+"users/:userId/:teamId" | "TeamContainer"
 "/%/%/:teamId/todoLists" | "TodoIndexContainer"
 "/%/%/%/todoLists/:todoListId" | "TodoListContainer"
 "/%/%/:teamId/schedule" | "ScheduleContainer"

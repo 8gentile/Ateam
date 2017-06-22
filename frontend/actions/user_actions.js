@@ -29,12 +29,4 @@ export const fetchTeams = user_id => dispatch => (
     .then(teams => dispatch(receiveTeams(teams)))
 );
 
-// export const updateUser = (user) => {
-//   return (dispatch) => {
-//     return APIUtils.updateUser(user.email, user.fname, user.lname, user.password)
-//       .then( user => dispatch(receiveCurrentUser(user)),
-//         errors => {
-//           dispatch(receiveErrors(errors.responseJSON));
-//         });
-//   };
-// };
+// CREATE TEAM FUNCTIONALITY

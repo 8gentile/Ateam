@@ -6,6 +6,12 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, default_url: "defaultAvatar.svg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+  has_many :memberships
+
+  has_many :teams,
+    through: :memberships,
+    source: :team
+
   attr_reader :password
 
   after_initialize :ensure_session_token

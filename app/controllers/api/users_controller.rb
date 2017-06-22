@@ -1,6 +1,11 @@
 class Api::UsersController < ApplicationController
 
-  #take user to team show page after login
+  def show
+    @user = User.find(params[:id])
+    @teams = @user.teams
+    debugger
+    render 'api/users/teams'
+  end
 
   def create
     @user = User.new(user_params)
@@ -15,8 +20,7 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      log_in(@user)
+    if @user.update_attributes(user_params)
       render :show
     else
       render json: @user.errors.full_messages, status: 422

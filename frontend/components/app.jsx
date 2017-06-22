@@ -18,7 +18,7 @@ const App = () => {
         <section className="bodySection">
           <AuthRoute exact path="/login" component={ SessionForm } />
           <AuthRoute exact path="/signup" component={ SignupForm } />
-          <ProtectedRoute path="/users/:userId/edit" component={ UserEdit } />
+          <ProtectedRoute exact path="/users/:userId/edit" component={ UserEdit } />
         </section>
     </div>
   );

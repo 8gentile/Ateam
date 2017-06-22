@@ -1,16 +1,18 @@
 # Schema
 
-- Not null constraints have been left off all table columns to facilitate faster test navigation.
+- Not null constraints have been left off some table columns to facilitate faster test navigation.
 
 ## USERS
 
 column name       | data type |	details
 -----------------|:-----------:|--------------------------:|
 id	             |integer	     | primary key
-name	           | string	     | indexed
-email	           | string	     | indexed, unique
-password_digest	 | string	     |
+fname	           | string	     | not null, indexed
+lname	           | string	     | not null, indexed
+email	           | string	     | not null, indexed, unique
+password_digest	 | string	     |  not_null
 session_token	   | string	     | indexed, unique
+avatar |  attachment |
 
 
 ## MEMBERSHIPS
@@ -18,8 +20,17 @@ session_token	   | string	     | indexed, unique
 column name       | data type |	details
 -----------------|:-----------:|----------------------------------:|
 id	             |  integer	   |   primary key
-(join)	         |  user_id	   |   integer,	foreign key
-team_id	       |  integer	   |   foreign key
+user_id	         |  	integer   |	foreign key, indexed
+team_id	       |  integer	   |   foreign key, indexed
+
+## INVITES
+
+column name       | data type |	details
+-----------------|:-----------:|----------------------------------:|
+id	             |  integer	   |   primary key
+email	         |  	string   |	not null
+team_id	       |  integer	   |   not null, foreign key, indexed
+pending | boolean |
 
 
 ## TEAMS
@@ -39,7 +50,7 @@ id	             |  integer	   | primary key
 title	         |    string	 |
 team_id	       |    integer	 | foreign key, indexed
 user_id     | integer | foreign key, indexed
-done | boolean | 
+done | boolean |
 
 
 ## TODOITEMS
