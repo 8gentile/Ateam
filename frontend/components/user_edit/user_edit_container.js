@@ -11,9 +11,9 @@ const mapStateToProps = ({ user, session }) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-      processForm: (user) => dispatch(updateUser(user)),
+      processForm: (formData, id) => dispatch(updateUser(formData, id)),
       fetchUser: (user_id) => dispatch(fetchUser(user_id)),
       clearErrors: () => dispatch(clearErrors()),
     };

@@ -4,3 +4,8 @@
   border-radius: 100%;
   background-color: green;
 }
+
+.avatar-big{
+  height: 60px;
+  width: 60px;
+}

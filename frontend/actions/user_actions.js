@@ -9,8 +9,8 @@ export const fetchUser = user_id => dispatch => (
     .then(user => dispatch(receiveUser(user)))
 );
 
-export const updateUser = user => dispatch => (
-  APIUtil.updateUser(user)
+export const updateUser = (formData, id) => dispatch => (
+  APIUtil.updateUser(formData, id)
     .then(currentUser => dispatch(receiveCurrentUser(currentUser)))
 );
 

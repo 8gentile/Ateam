@@ -1,4 +1,4 @@
-import { RECEIVE_USER, RECEIVE_TEAMS } from '../actions/user_actions';
+import { RECEIVE_USER, RECEIVE_TEAMS} from '../actions/user_actions';
 import merge from 'lodash/merge';
 
 const _nullUser = Object.freeze({

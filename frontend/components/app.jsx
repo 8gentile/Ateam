@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router-dom';
-import { AuthRoute } from '../utils/route_util.jsx';
+import { AuthRoute, ProtectedRoute } from '../utils/route_util.jsx';
 import SessionForm from './session_form_container';
 import SignupForm from './signup_form_container';
 import Greeting from './greeting_container';
@@ -18,7 +18,7 @@ const App = () => {
         <section className="bodySection">
           <AuthRoute exact path="/login" component={ SessionForm } />
           <AuthRoute exact path="/signup" component={ SignupForm } />
-          <Route path="/users/:userId/edit" component={ UserEdit } />
+          <ProtectedRoute path="/users/:userId/edit" component={ UserEdit } />
         </section>
     </div>
   );

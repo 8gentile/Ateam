@@ -1,3 +1,10 @@
+
+const thunk1 = (action) => (next) => (dispatch) => {
+  action.dispatch(next);
+};
+
+
+
 export const fetchUser = (user_id) => {
   return $.ajax({
     method: 'GET',
@@ -5,11 +12,14 @@ export const fetchUser = (user_id) => {
   });
 };
 
-export const updateUser = (email, fname, lname, password) => {
+export const updateUser = (formData, id) => {
   return $.ajax({
     method: 'PATCH',
-    url: '/api/user',
-    data: {user: { email, fname, lname, password }}
+    url: `/api/users/${id}`,
+    dataType: "json",
+    contentType: false,
+    processData: false,
+    data: formData,
   });
 };
 

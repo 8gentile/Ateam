@@ -2,20 +2,26 @@ import React from 'react';
 import merge from 'lodash/merge';
 import { withRouter, Link } from 'react-router-dom';
 
+// no ability to change password
+
 class UserEdit extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+      id: props.currentUser.id,
 			email: props.currentUser.email,
       fname: props.currentUser.fname,
       lname: props.currentUser.lname,
-			password: props.currentUser.password
+			password: props.currentUser.password,
+      imageFile: "",
+      imageUrl: props.currentUser.avatar_url,
 		};
     this.props.clearErrors();
 
     this.fullName = this.fullName.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.updateFile = this.updateFile.bind(this);
   }
 
 
@@ -29,11 +35,15 @@ class UserEdit extends React.Component {
     return name;
   }
 
-  handleClick(e){
+  handleSubmit(e){
     e.preventDefault();
-    const user = merge({}, this.state);
-    this.props.processForm(user)
-      .then( action => this.props.history.push("/"));
+    const formData = new FormData();
+
+    formData.append("user[email]", this.state.email);
+    formData.append("user[fname]", this.state.fname);
+    formData.append("user[lname]", this.state.lname);
+    formData.append("user[avatar]", this.state.imageFile);
+    this.props.processForm(formData, this.state.id);
   }
 
   handleChange(field){
@@ -52,18 +62,31 @@ class UserEdit extends React.Component {
     }
   }
 
+  updateFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ imageFile: file, imageUrl: fileReader.result });
+    };
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
+
   render(){
 
     return (
       <section className="sessionFormPanel">
         <form onSubmit={this.handleSubmit} className="sessionForm">
           <ul>
+            <img src={this.state.imageUrl} className="avatar-big" />
             {this.errors()}
             <li>
               <h2>Hello there {this.fullName()}!</h2>
             </li>
             <li>
-              <span>Please signup, <Link to="/login"> or login instead</Link></span>
+              <input type="file" onChange={ this.updateFile } />
             </li>
             <li className="inputLabel">
               <label>Email</label>
@@ -99,12 +122,13 @@ class UserEdit extends React.Component {
               <label>Password</label>
             </li>
             <li>
-              <input type="password"
+              <input
+                type="password"
                 onChange={this.handleChange("password")}
                 value={this.state.password} />
             </li>
-            <li onClick={this.handleClick}>
-              <h3 className="CTAbutton"><label>Save my changes</label></h3>
+            <li>
+              <button className="CTAbutton" >Save Changes</button>
             </li>
           </ul>
         </form>

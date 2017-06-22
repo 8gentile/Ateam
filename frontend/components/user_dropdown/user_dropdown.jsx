@@ -23,16 +23,3 @@ export default class UserDropDown extends React.Component {
   }
 
 }
-
-// implement later
-// <li onClick={this.redirectToProfile}>My Profile</li>
-// <li>
-//   <Link to="/useredit">User Settings</Link>
-// </li>
-// for user edit page
-
-
-// redirectToProfile () {
-//   hashHistory.push('/users/' + this.props.currentUser.id);
-// }
-//
