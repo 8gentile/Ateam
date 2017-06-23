@@ -1,2 +1,3 @@
-json.extract! @user, :id, :email, :fname, :lname
-json.avatar_url asset_path(@user.avatar.url)
+@users.each do |user|
+  json.partial! 'api/users/user', user: user
+end

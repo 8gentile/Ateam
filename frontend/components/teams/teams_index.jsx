@@ -43,6 +43,7 @@ class TeamsIndex extends React.Component {
 
   componentDidMount(){
     this.props.fetchTeams(this.props.currentUser.id);
+    this.props.fetchUsers(this.props.currentUser.id);
   }
 
   render(){
@@ -103,12 +104,20 @@ class TeamsIndex extends React.Component {
     } else {
       const teamIds = Object.keys(this.props.teams);
       const teams = teamIds.map( teamId => {
+        const memberAvatars = this.props.teams[teamId].member_ids.map( memberId => {
+          return <li className="user-avatar" key={memberId}><img src={this.props.users.users[memberId].avatar_url}/></li>;
+        });
         return (
           <Link to={`/teams/${teamId}`} key={teamId}>
             <li  className="team-card" key={teamId}>
-              <ul>
+              <ul className="team-card-contents">
                 <li>
                   <h2 className="card-header">{ this.props.teams[teamId].name }</h2>
+                </li>
+                <li>
+                  <ul className="team-avatars">
+                    { memberAvatars }
+                  </ul>
                 </li>
               </ul>
             </li>

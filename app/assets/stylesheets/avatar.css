@@ -10,3 +10,10 @@
   height: 60px;
   width: 60px;
 }
+
+.team-avatars {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}

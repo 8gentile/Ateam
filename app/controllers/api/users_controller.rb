@@ -1,13 +1,10 @@
 class Api::UsersController < ApplicationController
 
-  def index
+
+  def show
     @user = User.find(params[:id])
     @users = @user.teammates
   end
-
-  # def index
-  #   @user = User.find(params[:id])
-  # end
 
   def create
     @user = User.new(user_params)
