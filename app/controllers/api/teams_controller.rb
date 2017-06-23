@@ -1,7 +1,7 @@
 class Api::TeamsController < ApplicationController
 
   def show
-    # implement later
+    # implement Friday
     # @team = Team.find(params[:id])
   end
 
@@ -18,7 +18,7 @@ class Api::TeamsController < ApplicationController
   end
 
   def update
-    # implement later
+    # implement Friday
   end
 
   private
