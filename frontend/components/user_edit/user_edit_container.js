@@ -5,10 +5,9 @@ import { clearErrors } from '../../actions/session_actions';
 
 
 const mapStateToProps = ({ users, session }) => {
-  const currentUserId = Object.keys(session.currentUser);
   return {
     users,
-    currentUser: session.currentUser[currentUserId],
+    currentUser: session.currentUser,
   };
 };
 

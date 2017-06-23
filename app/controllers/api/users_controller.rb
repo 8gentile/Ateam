@@ -1,10 +1,13 @@
 class Api::UsersController < ApplicationController
 
-  def show
+  def index
     @user = User.find(params[:id])
     @users = @user.teammates
-    debugger
   end
+
+  # def index
+  #   @user = User.find(params[:id])
+  # end
 
   def create
     @user = User.new(user_params)
@@ -20,6 +23,7 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
+      @users = @user.teammates
       render :show
     else
       render json: @user.errors.full_messages, status: 422

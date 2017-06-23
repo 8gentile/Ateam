@@ -7,10 +7,9 @@ import {
 import { clearErrors } from '../../actions/session_actions';
 
 const mapStateToProps = ({session, teams}) => {
-  const currentUserId = Object.keys(session.currentUser);
   return {
     teams: teams.entities,
-    currentUser: session.currentUser[currentUserId],
+    currentUser: session.currentUser,
   };
 };
 

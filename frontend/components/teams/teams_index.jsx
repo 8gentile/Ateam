@@ -104,8 +104,8 @@ class TeamsIndex extends React.Component {
       const teamIds = Object.keys(this.props.teams);
       const teams = teamIds.map( teamId => {
         return (
-          <Link to={`/teams/${teamId}`}>
-            <li key={teamId} className="team-card">
+          <Link to={`/teams/${teamId}`} key={teamId}>
+            <li  className="team-card" key={teamId}>
               <ul>
                 <li>
                   <h2 className="card-header">{ this.props.teams[teamId].name }</h2>

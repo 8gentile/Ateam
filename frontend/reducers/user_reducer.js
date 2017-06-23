@@ -1,4 +1,4 @@
-import { RECEIVE_USERS } from '../actions/user_actions';
+import { RECEIVE_USERS, RECEIVE_USER } from '../actions/user_actions';
 import merge from 'lodash/merge';
 
 const _nullUser = Object.freeze({
@@ -10,7 +10,7 @@ const UsersReducer = (state = _nullUser, action) => {
   switch(action.type) {
     case RECEIVE_USERS:
       const users = action.users;
-      return merge({}, _nullUser, {user});
+      return merge({}, _nullUser, {users});
     default:
       return state;
   }

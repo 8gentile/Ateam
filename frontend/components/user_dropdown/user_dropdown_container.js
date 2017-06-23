@@ -4,9 +4,8 @@ import { logout } from '../../actions/session_actions';
 import UserDropDown from './user_dropdown';
 
 const mapStateToProps = ({ session }) => {
-  const currentUserId = Object.keys(session.currentUser);
   return ({
-    currentUser: session.currentUser[currentUserId]
+    currentUser: session.currentUser
   });
 };
 

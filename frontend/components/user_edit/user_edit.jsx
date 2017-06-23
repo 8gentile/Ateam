@@ -43,7 +43,6 @@ class UserEdit extends React.Component {
     formData.append("user[fname]", this.state.fname);
     formData.append("user[lname]", this.state.lname);
     formData.append("user[avatar]", this.state.imageFile);
-    debugger
     this.props.processForm(formData, this.state.id);
   }
 
