@@ -5,11 +5,13 @@ import {
   createTeam
 } from '../../actions/team_actions';
 import { clearErrors } from '../../actions/session_actions';
+// import { fetchUsers }
 
-const mapStateToProps = ({session, teams}) => {
+const mapStateToProps = ({ session, teams, users }) => {
   return {
     teams: teams.entities,
     currentUser: session.currentUser,
+    users,
   };
 };
 

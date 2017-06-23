@@ -5,7 +5,7 @@ import {
 } from '../../actions/team_actions';
 
 const mapStateToProps = ({ teams, session }) => {
-  debugger
+  
   return {
     teams: teams.entities,
     currentUser: session.currentUser,
