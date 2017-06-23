@@ -2,7 +2,8 @@
   height: 2rem;
   width: 2rem;
   border-radius: 100%;
-  background-color: green;
+  background-color: #FBF8F4;
+  border: 1px solid #FBF8F4;
 }
 
 .avatar-big{

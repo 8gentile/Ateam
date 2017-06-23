@@ -1,4 +1,3 @@
-
 export const fetchUser = (user_id) => {
   return $.ajax({
     method: 'GET',
@@ -14,20 +13,5 @@ export const updateUser = (formData, id) => {
     contentType: false,
     processData: false,
     data: formData,
-  });
-};
-
-export const fetchTeams = (user_id) => {
-  return $.ajax({
-    method: 'GET',
-    url: '/api/users/' + user_id
-  });
-};
-
-export const createTeam = ({ name, manager_id }) => {
-  return $.ajax({
-    method: 'POST',
-    url: '/api/teams',
-    data: {team: {name, manager_id}}
   });
 };

@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 
 ///// testing imports
+import { fetchTeams, createTeam } from './actions/user_actions';
 /////
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,6 +26,9 @@ if (window.currentUser) {
 //Window Testing Area
 window.dispatch = store.dispatch;
 window.getState = store.getState;
+//////////////////// temp tests
+window.fetchTeams = fetchTeams;
+window.createTeam = createTeam;
 ////////////////////
 
 const root = document.getElementById('root');

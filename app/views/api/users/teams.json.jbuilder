@@ -1,3 +1,3 @@
-json.array! @teams do |team|
-  json.extract! team, :name, :manager_id
+@teams.each do |team|
+  json.partial! 'api/users/team', team: team
 end

@@ -13,6 +13,32 @@
   width: 90%;
 }
 
+.team-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 20%;
+  font-family: 'Martel Sans', sans-serif;
+
+}
+
+.team-nav li {
+  margin: 1px solid #FBF8F4;
+  padding: 0 .5rem;
+  background: #FBF8F4;
+  color: #197944;
+  border-radius: 7px 7px 7px 7px;
+  font-family: 'Martel Sans', sans-serif;
+  font-weight: 400;
+  transition: color 0.25s;
+}
+
+.team-nav li:hover {
+  color: #197944;
+  background: #FFFFFF;
+}
+
 .header-items nav {
   display: flex;
   position: relative;

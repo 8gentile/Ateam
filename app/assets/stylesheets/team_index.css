@@ -1,0 +1,94 @@
+.team-index-container {
+  top: -1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.team-index-panel {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.panel-header {
+  font-size: 19px;
+  line-height: 23px;
+  font-weight: 400;
+  color: #aa9c84;
+  margin-bottom: 0.3125em;
+}
+
+.panel-header:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  z-index: -1;
+}
+
+.team-index {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 70%;
+  height: 70vh
+}
+
+.team-card {
+  height: 9rem;
+  width: 18rem;
+  background: #ffffff;
+  border-radius: 8px 8px 8px 8px;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.1);
+}
+
+.team-button-card-false {
+  height: 9rem;
+  width: 18rem;
+  background: #ffffff;
+  border-radius: 8px 8px 8px 8px;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.1);
+}
+
+.card-header {
+  font-weight: 700;
+  margin-top: 0.8rem;
+}
+
+.team-button-card-false button {
+  display: flex;
+  justify-content: center;
+  color: #3cb371;
+  font-size: 5rem;
+  height: 100%;
+  width: 100%;
+}
+
+.team-button-card-true {
+  height: 9rem;
+  width: 18rem;
+  background: #ffffff;
+  border-radius: 8px 8px 8px 8px;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.1);
+}
+
+.team-button-card-true form {
+  display: flex;
+  flex-direction: column;
+}

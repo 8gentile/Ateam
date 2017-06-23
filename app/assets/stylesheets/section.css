@@ -1,4 +1,5 @@
 .bodySection {
+  border-top: 1px solid #ddd6cd;
   background: #F5EFE6;
   height: 100vh;
 }

@@ -2,7 +2,6 @@ import * as APIUtil from '../utils/user_api_utils';
 import { receiveCurrentUser } from './session_actions';
 
 export const RECEIVE_USER = "RECEIVE_USER";
-export const RECEIVE_TEAMS = "RECEIVE_TEAMS";
 
 export const fetchUser = user_id => dispatch => (
   APIUtil.fetchUser(user_id)
@@ -18,15 +17,3 @@ export const receiveUser = (user) => ({
   type: RECEIVE_USER,
   user
 });
-
-export const receiveTeams = (teams) => ({
-  type: RECEIVE_TEAMS,
-  teams
-});
-
-export const fetchTeams = user_id => dispatch => (
-  APIUtil.fetchTeams(user_id)
-    .then(teams => dispatch(receiveTeams(teams)))
-);
-
-// CREATE TEAM FUNCTIONALITY

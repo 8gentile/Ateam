@@ -5,6 +5,8 @@ import SessionForm from './session_form_container';
 import SignupForm from './signup_form_container';
 import Greeting from './greeting_container';
 import UserEdit from './user_edit/user_edit_container';
+import Teams from './teams/teams_index_container';
+import Nav from './nav/nav_container';
 
 const App = () => {
   return (
@@ -12,6 +14,7 @@ const App = () => {
       <header className="header">
         <div className="header-items">
           <h1 className="logo">Äteam</h1>
+          <ProtectedRoute path="/" component={ Nav } />
           <Greeting />
         </div>
       </header>
@@ -19,6 +22,7 @@ const App = () => {
           <AuthRoute exact path="/login" component={ SessionForm } />
           <AuthRoute exact path="/signup" component={ SignupForm } />
           <ProtectedRoute exact path="/users/:userId/edit" component={ UserEdit } />
+          <ProtectedRoute exact path="/users/:userId" component={ Teams } />
         </section>
     </div>
   );

@@ -3,7 +3,6 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @teams = @user.teams
-    debugger
     render 'api/users/teams'
   end
 
