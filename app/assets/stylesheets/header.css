@@ -59,6 +59,19 @@
   align-items: center;
 }
 
+.guest-button span {
+  background: #197944;
+  color: #fbf8f4;
+  cursor: pointer;
+  transition: background 0.5s;
+  transition: color 0.5s;
+}
+
+.guest-button span:hover {
+  color: #197944;
+  background: #FFFFFF;
+}
+
 .authNav span {
   font-family: 'Martel Sans', sans-serif;
   font-weight: 400;

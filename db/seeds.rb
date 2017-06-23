@@ -23,6 +23,13 @@ User.create(
   password: "create"
 )
 
+User.create(
+  fname: "Termina",
+  lname: "McGillicutty",
+  email: "sedulity@metalfingers.com",
+  password: "starward"
+)
+
 Team.create(
   name: "Ateam",
   manager_id: 3
@@ -40,5 +47,10 @@ Membership.create(
 
 Membership.create(
   user_id: 3,
+  team_id: 1
+)
+
+Membership.create(
+  user_id: 4,
   team_id: 1
 )

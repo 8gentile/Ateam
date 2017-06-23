@@ -8,6 +8,8 @@ export default class Greeting extends React.Component {
     this.state = {
       dropdown: false,
     };
+
+    this.guestClick = this.guestClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.toggleDropdown = this.toggleDropdown.bind(this);
   }
@@ -25,6 +27,11 @@ export default class Greeting extends React.Component {
     this.toggleDropdown();
   }
 
+  guestClick(e){
+    e.preventDefault();
+    this.props.guestLogIn();
+  }
+
   render(){
     const thingToDisplay = () => {
       if (this.props.currentUser) {
@@ -39,6 +46,9 @@ export default class Greeting extends React.Component {
       } else {
         return (
           <ul className="authNav">
+            <li className="guest-button">
+              <span className="authButton" onClick={ this.guestClick }>Guests</span>
+            </li>
             <li>
               <Link to='/signup'>
                 <span className="authButton">Sign Up</span>

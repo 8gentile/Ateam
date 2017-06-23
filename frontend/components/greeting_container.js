@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
 import Greeting from './greeting';
-import { logout } from '../actions/session_actions';
+import { logout, login } from '../actions/session_actions';
 
 const mapStateToProps = ({ session }) => {
   return {
-    currentUser: session.currentUser
+    currentUser: session.currentUser,
   };
 }
 
 const mapDispatchToProps = ( dispatch ) => {
   return {
+    guestLogIn: () => dispatch(login({
+      email: "sedulity@metalfingers.com",
+      password: "starward",
+    })),
     logout: () => dispatch(logout()),
   }
 }
