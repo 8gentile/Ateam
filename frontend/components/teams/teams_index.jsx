@@ -105,7 +105,7 @@ class TeamsIndex extends React.Component {
       const teamIds = Object.keys(this.props.teams);
       const teams = teamIds.map( teamId => {
         const memberAvatars = this.props.teams[teamId].member_ids.map( memberId => {
-          return <li className="user-avatar" key={memberId}><img src={this.props.users.users[memberId].avatar_url}/></li>;
+          return <li key={memberId}><img className="user-avatar" src={this.props.users.users[memberId].avatar_url}/></li>;
         });
         return (
           <Link to={`/teams/${teamId}`} key={teamId}>
