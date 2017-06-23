@@ -3,9 +3,10 @@ import {connect} from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import UserDropDown from './user_dropdown';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ session }) => {
+  const currentUserId = Object.keys(session.currentUser);
   return ({
-    currentUser: state.session.currentUser
+    currentUser: session.currentUser[currentUserId]
   });
 };
 

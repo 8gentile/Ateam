@@ -20,10 +20,10 @@ const App = () => {
         </div>
       </header>
         <section className="bodySection">
-          <AuthRoute exact path="/login" component={ SessionForm } />
-          <AuthRoute exact path="/signup" component={ SignupForm } />
-          <ProtectedRoute exact path="/users/:userId/edit" component={ UserEdit } />
-          <ProtectedRoute path="/users/:userId" component={ TeamsIndex } />
+          <AuthRoute exact={true} path="/login" component={ SessionForm } />
+          <AuthRoute exact={true} path="/signup" component={ SignupForm } />
+          <ProtectedRoute path="/users/:userId/edit" component={ UserEdit } />
+          <ProtectedRoute exact={true} path="/users/:userId" component={ TeamsIndex } />
           <ProtectedRoute path="/teams/:teamId" component={ TeamShow } />
 
         </section>

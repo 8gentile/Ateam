@@ -1,11 +1,11 @@
 import * as APIUtil from '../utils/user_api_utils';
 import { receiveCurrentUser } from './session_actions';
 
-export const RECEIVE_USER = "RECEIVE_USER";
+export const RECEIVE_USERS = "RECEIVE_USERS";
 
-export const fetchUser = user_id => dispatch => (
-  APIUtil.fetchUser(user_id)
-    .then(user => dispatch(receiveUser(user)))
+export const fetchUsers = user_id => dispatch => (
+  APIUtil.fetchUsers(user_id)
+    .then(users => dispatch(receiveUsers(users)))
 );
 
 export const updateUser = (formData, id) => dispatch => (
@@ -13,7 +13,7 @@ export const updateUser = (formData, id) => dispatch => (
     .then(currentUser => dispatch(receiveCurrentUser(currentUser)))
 );
 
-export const receiveUser = (user) => ({
-  type: RECEIVE_USER,
-  user
+export const receiveUsers = (users) => ({
+  type: RECEIVE_USERS,
+  users
 });

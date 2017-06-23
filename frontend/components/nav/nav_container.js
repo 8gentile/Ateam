@@ -4,11 +4,11 @@ import {
   fetchTeams
 } from '../../actions/team_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ teams, session }) => {
+  const currentUserId = Object.keys(session.currentUser);
   return {
-    teams: state.teams.entities,
-    currentUser: state.session.currentUser,
-    currentTeam: state.teams.currentTeam,
+    teams: teams.entities,
+    currentUser: session.currentUser[currentUserId],
   };
 };
 

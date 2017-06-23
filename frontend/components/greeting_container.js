@@ -3,7 +3,10 @@ import Greeting from './greeting';
 import { logout } from '../actions/session_actions';
 
 const mapStateToProps = ({ session }) => {
-  return { currentUser: session.currentUser };
+  const currentUserId = Object.keys(session.currentUser);
+  return {
+    currentUser: session.currentUser[currentUserId]
+  };
 }
 
 const mapDispatchToProps = ( dispatch ) => {
