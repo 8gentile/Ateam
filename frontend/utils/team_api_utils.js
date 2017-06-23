@@ -1,7 +1,14 @@
 export const fetchTeams = (user_id) => {
   return $.ajax({
     method: 'GET',
-    url: '/api/users/' + user_id
+    url: '/api/users/' + user_id + '/teams'
+  });
+};
+
+export const fetchTeam = (team_id) => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/teams/' + team_id
   });
 };
 

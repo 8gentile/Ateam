@@ -2,8 +2,8 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @teams = @user.teams
-    render 'api/users/teams'
+    @users = @user.teammates
+    debugger
   end
 
   def create

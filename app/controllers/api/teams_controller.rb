@@ -1,8 +1,12 @@
 class Api::TeamsController < ApplicationController
 
+  def index
+    @teams = current_user.teams
+  end
+
   def show
-    # implement Friday
-    # @team = Team.find(params[:id])
+    @team = Team.find(params[:id])
+    # render "api/teams/#{@team.id}"
   end
 
   def create

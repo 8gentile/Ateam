@@ -2,16 +2,26 @@
   session: {
     currentUser: { }
   }
-  user: {
-      avatar:
+
+  users: {
+    1: {
+        id:
+        email:
+        fname:
+        lname:
+        avatar_url:
     }
+    2: {
+      ...
+    }
+  }
   teams: {
     entities: {
-      1: { title: ""},
+      1: { title: "", member_ids: []},
       2: { title: ""},
       3: {}
     },
-    currentTeam: 2
+    <!-- currentTeam: 2 -->
   }
   todos: {
     5: {},

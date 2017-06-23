@@ -6,7 +6,7 @@ class Team < ActiveRecord::Base
 
   has_many :memberships
 
-  has_many :users,
+  has_many :members,
     through: :memberships,
     source: :user
 

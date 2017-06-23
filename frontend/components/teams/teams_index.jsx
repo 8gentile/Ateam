@@ -1,9 +1,8 @@
 import React from 'react';
 import merge from 'lodash/merge';
 import { withRouter, Link } from 'react-router-dom';
-import AddTeamForm from './add_team_form';
 
-class Teams extends React.Component {
+class TeamsIndex extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -105,13 +104,15 @@ class Teams extends React.Component {
       const teamIds = Object.keys(this.props.teams);
       const teams = teamIds.map( teamId => {
         return (
-          <li key={teamId} className="team-card">
-            <ul>
-              <li>
-                <h2 className="card-header">{ this.props.teams[teamId].name }</h2>
-              </li>
-            </ul>
-          </li>
+          <Link to={`/teams/${teamId}`}>
+            <li key={teamId} className="team-card">
+              <ul>
+                <li>
+                  <h2 className="card-header">{ this.props.teams[teamId].name }</h2>
+                </li>
+              </ul>
+            </li>
+          </Link>
         );
       });
 
@@ -135,4 +136,4 @@ class Teams extends React.Component {
 }
 
 
-export default withRouter(Teams);
+export default withRouter(TeamsIndex);

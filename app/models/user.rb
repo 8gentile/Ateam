@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
     through: :memberships,
     source: :team
 
+  has_many :teammates,
+    through: :teams,
+    source: :members
+
   attr_reader :password
 
   after_initialize :ensure_session_token
