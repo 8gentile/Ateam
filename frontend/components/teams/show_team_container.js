@@ -7,7 +7,6 @@ import {
 import { clearErrors } from '../../actions/session_actions';
 
 const mapStateToProps = ({ teams, session }, { match }) => {
-  debugger
   return {
     team: teams.entities[match.params.teamId],
     currentUser: session.currentUser,
@@ -21,7 +20,8 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default withRouter(connect(
+export default withRouter(
+  connect(
   mapStateToProps,
   mapDispatchToProps
-)(TeamShow));
+  )(TeamShow));

@@ -43,12 +43,18 @@ class TeamsIndex extends React.Component {
 
   componentDidMount(){
     this.props.fetchTeams(this.props.currentUser.id);
-    this.props.fetchUsers(this.props.currentUser.id);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.teams === nextProps.teams) {
+      this.props.fetchTeams(this.props.currentUser.id);
+    };
   }
 
   render(){
+    
     if(!this.props.teams) return null;
-    if(!this.props.users) return null;
+    // if(!this.props.users.empty) return null;
     const toggleButtonCard = () => {
       if (!this.state.addTeamFormVisible) {
         return (
@@ -87,8 +93,8 @@ class TeamsIndex extends React.Component {
       }
       return true;
     }
-
     if (isEmpty(this.props.teams)) {
+    
       return (
         <section className="team-index-container">
           <section className="team-index-panel">
@@ -105,9 +111,12 @@ class TeamsIndex extends React.Component {
       );
     } else {
       const teamIds = Object.keys(this.props.teams);
+      const that = this;
       const teams = teamIds.map( teamId => {
-        const memberAvatars = this.props.teams[teamId].member_ids.map( memberId => {
-          return <li key={memberId}><img className="user-avatar" src={this.props.users.users[memberId].avatar_url}/></li>;
+        const avatarUrls = this.props.teams[teamId].member_avatars;
+        const memberAvatars = avatarUrls.map( (avatar_url, idx) => {
+        return (<li key={idx}><img className="user-avatar" 
+                  src={ avatar_url }/></li>);
         });
         return (
           <Link to={`/teams/${teamId}`} key={teamId}>

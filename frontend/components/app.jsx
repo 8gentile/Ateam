@@ -25,7 +25,6 @@ const App = () => {
           <ProtectedRoute path="/users/:userId/edit" component={ UserEdit } />
           <ProtectedRoute exact={true} path="/users/:userId" component={ TeamsIndex } />
           <ProtectedRoute path="/teams/:teamId" component={ TeamShow } />
-
         </section>
     </div>
   );

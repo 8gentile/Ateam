@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Teams from './teams_index';
+import { withRouter } from 'react-router-dom';
 import {
   fetchTeams,
   createTeam
