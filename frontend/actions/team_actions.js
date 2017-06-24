@@ -13,6 +13,11 @@ export const receiveTeam = ( team ) => ({
   team
 });
 
+export const fetchTeam = teamId => (
+  APIUtil.fetchTeam(teamId)
+    .then( team => dispatch(receiveTeam(team)))
+);
+
 export const fetchTeams = user_id => dispatch => (
   APIUtil.fetchTeams(user_id)
     .then(teams => dispatch(receiveTeams(teams)))

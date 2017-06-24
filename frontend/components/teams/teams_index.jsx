@@ -47,6 +47,8 @@ class TeamsIndex extends React.Component {
   }
 
   render(){
+    if(!this.props.teams) return null;
+    if(!this.props.users) return null;
     const toggleButtonCard = () => {
       if (!this.state.addTeamFormVisible) {
         return (

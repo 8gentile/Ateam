@@ -17,6 +17,6 @@ export const createTeam = ({ name, manager_id }) => {
   return $.ajax({
     method: 'POST',
     url: '/api/teams',
-    data: {team: {name, manager_id}}
+    data: {team: { name, manager_id }}
   });
 };

@@ -3,7 +3,6 @@ import merge from 'lodash/merge';
 
 const _nullTeams = Object.freeze({
   entities: {},
-  currentTeam: null,
 });
 
 const TeamReducer = ( state = _nullTeams, action ) => {

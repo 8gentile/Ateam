@@ -6,7 +6,6 @@ class Api::TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    # render "api/teams/#{@team.id}"
   end
 
   def create

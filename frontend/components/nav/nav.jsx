@@ -7,6 +7,10 @@ class Nav extends React.Component {
 
   }
 
+  componentDidMount(){
+    this.props.fetchTeams(this.props.currentUser.id);
+  }
+
   render(){
     const teamIds = Object.keys(this.props.teams);
     const teams = teamIds.map( teamId => {

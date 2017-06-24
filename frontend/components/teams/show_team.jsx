@@ -6,18 +6,25 @@ import { withRouter, Link } from 'react-router-dom';
 class TeamShow extends React.Component {
   constructor(props){
     super(props);
-
-    this.props.clearErrors();
+    console.log(props);
   }
 
   componentDidMount(){
-    // currentTeam = match;
-    this.props.fetchTeam(this.props.currentUser.id);
+    // this.props.clearErrors();
+    this.props.fetchTeam(this.props.match.params.teamId);
   }
 
   render(){
+    const { team } = this.props;
+    if(!team) return null;
     return (
-      <h1>Howdy from a team show page!</h1>
+      <section className="team-show-panel">
+        <div className="team-show-header">
+          <h1>{team[this.props.match.params.teamId].name}</h1>
+
+        </div>
+
+      </section>
     );
   }
 }

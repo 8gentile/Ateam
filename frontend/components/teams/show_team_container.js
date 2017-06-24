@@ -1,26 +1,27 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import TeamShow from './show_team';
 import {
   fetchTeam
 } from '../../actions/team_actions';
 import { clearErrors } from '../../actions/session_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ teams, session }, { match }) => {
+  debugger
   return {
-    teams: state.teams.entities,
-    currentUser: state.session.currentUser,
-    // currentTeam: state.teams.currentTeam,s
+    team: teams.entities[match.params.teamId],
+    currentUser: session.currentUser,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchTeam: team_id => dispatch(fetchTeams(team_id)),
+    fetchTeam: team_id => dispatch(fetchTeam(team_id)),
     clearErrors: () => dispatch(clearErrors()),
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(TeamShow);
+)(TeamShow));
