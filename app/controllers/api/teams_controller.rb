@@ -14,7 +14,7 @@ class Api::TeamsController < ApplicationController
       @membership = Membership.new({ user_id: @team.manager_id, team_id: @team.id })
       @membership.save
       @teams = @membership.user.teams
-      render 'api/users/teams'
+      render 'api/teams/index'
     else
       render json: @team.errors.full_messages, status: 422
     end

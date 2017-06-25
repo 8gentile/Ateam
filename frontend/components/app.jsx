@@ -8,6 +8,7 @@ import Greeting from './greeting_container';
 import UserEdit from './user_edit/user_edit_container';
 import TeamsIndex from './teams/teams_index_container';
 import TeamShow from './teams/show_team_container';
+import TeamEdit from './teams/edit_team_container';
 
 const App = () => {
   return (
@@ -24,7 +25,8 @@ const App = () => {
           <AuthRoute exact={true} path="/signup" component={ SignupForm } />
           <ProtectedRoute path="/users/:userId/edit" component={ UserEdit } />
           <ProtectedRoute exact={true} path="/users/:userId" component={ TeamsIndex } />
-          <ProtectedRoute path="/teams/:teamId" component={ TeamShow } />
+          <ProtectedRoute exact={true} path="/teams/:teamId" component={ TeamShow } />
+          <ProtectedRoute path="/teams/:teamId/edit" component={ TeamEdit } />
         </section>
     </div>
   );

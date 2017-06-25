@@ -6,12 +6,10 @@ import { withRouter, Link } from 'react-router-dom';
 class TeamShow extends React.Component {
   constructor(props){
     super(props);
-    console.log(props);
   }
 
   componentDidMount(){
-    // this.props.clearErrors();
-    this.props.fetchTeam(this.props.match.params.teamId);
+    this.props.fetchTeams(this.props.currentUser.id);
   }
 
   render(){
@@ -31,7 +29,7 @@ class TeamShow extends React.Component {
             <ul className="header-avatar-list">
               { memberAvatars }
             </ul>
-            <Link to="#" className="edit-members-link"> Add/remove people...</Link>
+            <Link to={`/teams/${team.id}/edit`} className="edit-members-link"> Add/remove people...</Link>
           </section>
         </div>
       </section>

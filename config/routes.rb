@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :create, :update, :show] do
       resources :teams, only: [:index]
     end
-    resources :teams, only: [:create, :show, :update]
+    resources :teams, only: [:create, :show, :update, :edit]
+    resources :memberships, only: [:destroy]
   end
 end
