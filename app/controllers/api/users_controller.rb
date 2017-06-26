@@ -27,6 +27,15 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user_id = params[:id]
+    @team_id = params[:team_id]
+    @membership = Membership.all.select{|m| m[:team_id] == @team_id.to_i && m[:user_id] == @user_id.to_i}.first
+    @membership.destroy!
+    @users = current_user.teammates
+    render 'api/users/show'
+  end
+
   private
   def user_params
     params.require(:user).permit(:email, :fname, :lname, :password, :avatar)

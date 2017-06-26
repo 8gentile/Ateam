@@ -13,7 +13,7 @@ export default class CurrentMembers extends React.Component {
     const members = this.props.member_ids.map( id => {
       const member = users[id];
       return (
-        <Member 
+        <Member
           teamId={this.props.team.id}
           member={member} 
           removeMember={this.props.removeMember}

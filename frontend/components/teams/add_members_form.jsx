@@ -6,7 +6,8 @@ class AddMembersForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+        email: "",
+        team_id: this.props.team.id,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,9 +16,9 @@ class AddMembersForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    const user = merge({}, this.state);
-    this.props.processForm(this.state.email)
-      .then( action => this.props.history.push(`/teams/${this.props.team.id}/edit`));
+    const member = merge({}, this.state);
+    this.props.processForm({ member })
+      .then( action => this.setState({email: ""}));
   }
 
   handleChange(field){
@@ -36,7 +37,7 @@ class AddMembersForm extends React.Component {
             <li>
               <h3>Add a person to {team.name} by email</h3>
             </li>
-            
+
             <li className="member-input-panel">
               <label>
                 <input

@@ -82,10 +82,16 @@
 .team-button-card-false button {
   display: flex;
   justify-content: center;
+  align-items: center;
   color: #3cb371;
   font-size: 5rem;
   height: 100%;
   width: 100%;
+}
+.team-button-card-false p {
+  color: #283c4b;
+  font-size: 2.8rem;
+  margin-left: 0.6rem;
 }
 
 .team-button-card-true {
@@ -98,6 +104,45 @@
   margin-top: 1rem;
   box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.1);
 }
+
+
+.button-card-input {
+  margin: 20px 0 10px 0;
+  width: 90%;
+  border: 1px solid #bfbfbf;
+  border-radius: 4px;
+  padding: 8px 5px;
+  text-align: left;
+  font-family: 'Martel Sans', sans-serif;
+  font-weight: 400;
+}
+
+.button-card-input:focus {
+  box-shadow: 0px 0px 4px 2px lightblue;
+  border: 1px solid lightblue;
+}
+
+.team-button-card-true button:first-child {
+  align-items: center;
+  background: #3cb371;
+  padding: 2px 13px;
+  box-shadow: 0 1px 6px 0px rgba(0,0,0,0.1);
+  border-radius: 0.3rem;
+  color: #fff;
+  border-bottom-color: rgba(0, 0, 0, 0.15);
+}
+
+.team-button-card-true button:last-child {
+  align-items: center;
+  background: #a6a6a6;
+  padding: 2px 13px;
+  box-shadow: 0 1px 6px 0px rgba(0,0,0,0.1);
+  border-radius: 0.3rem;
+  color: #fff;
+  border-bottom-color: rgba(0, 0, 0, 0.15);
+  margin-left: 0.2rem;
+}
+
 
 .team-button-card-true form {
   display: flex;

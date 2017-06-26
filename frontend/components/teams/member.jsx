@@ -27,7 +27,7 @@ export default class Member extends React.Component {
 
   handleRemove(e){
     e.preventDefault(e);
-    this.props.removeMember();
+    this.props.removeMember(this.props.member.id, this.props.teamId);
   }
 
   render(){
@@ -65,4 +65,3 @@ export default class Member extends React.Component {
     );
   }
 }
-

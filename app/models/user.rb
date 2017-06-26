@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  def self.find_by_email(email)
+  def self.find_user_id_by_email(email)
     user = User.find_by(email: email)
     user.id
   end

@@ -52,7 +52,7 @@ class TeamsIndex extends React.Component {
   }
 
   render(){
-    
+
     if(!this.props.teams) return null;
     // if(!this.props.users.empty) return null;
     const toggleButtonCard = () => {
@@ -60,7 +60,7 @@ class TeamsIndex extends React.Component {
         return (
           <li className="team-button-card-false">
             <button onClick={this.handleClick}>
-              <span>+</span>
+              <span>+</span><p>New</p>
             </button>
           </li>
         );
@@ -69,15 +69,16 @@ class TeamsIndex extends React.Component {
           <li className="team-button-card-true">
             <form onSubmit={this.handleSubmit}>
               <input
+                className="button-card-input"
                 onChange={this.handleChange("name")}
                 value={this.state.team.name}
                 placeholder="Name this team"/>
               <section>
-                <button type="submit">
-                <span>Save</span>
+                <button type="button-card-submit">
+                  <span>Save</span>
                 </button>
                 <button onClick={this.handleClick}>
-                <span>Cancel</span>
+                <span className="button-card-cancel">Cancel</span>
                 </button>
               </section>
             </form>
@@ -94,7 +95,7 @@ class TeamsIndex extends React.Component {
       return true;
     }
     if (isEmpty(this.props.teams)) {
-    
+
       return (
         <section className="team-index-container">
           <section className="team-index-panel">
@@ -115,7 +116,7 @@ class TeamsIndex extends React.Component {
       const teams = teamIds.map( teamId => {
         const avatarUrls = this.props.teams[teamId].member_avatars;
         const memberAvatars = avatarUrls.map( (avatar_url, idx) => {
-        return (<li key={idx}><img className="user-avatar" 
+        return (<li key={idx}><img className="user-avatar"
                   src={ avatar_url }/></li>);
         });
         return (
