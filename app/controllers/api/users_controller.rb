@@ -33,7 +33,8 @@ class Api::UsersController < ApplicationController
     @membership = Membership.all.select{|m| m[:team_id] == @team_id.to_i && m[:user_id] == @user_id.to_i}.first
     @membership.destroy!
     @users = current_user.teammates
-    render 'api/users/show'
+    @team = Team.find_by(id: @team_id)
+    render 'api/teams/show'
   end
 
   private

@@ -25,7 +25,7 @@ const App = () => {
           <AuthRoute exact={true} path="/login" component={ SessionForm } />
           <AuthRoute exact={true} path="/signup" component={ SignupForm } />
           <ProtectedRoute path="/users/:userId/edit" component={ UserEdit } />
-          <ProtectedRoute exact={true} path="/users/:userId" component={ TeamsIndex } />
+          <ProtectedRoute exact={true} path="/" component={ TeamsIndex } />
           <ProtectedRoute exact={true} path="/teams/:teamId" component={ TeamShow } />
           <ProtectedRoute path="/teams/:teamId/edit" component={ TeamEdit } />
           <ProtectedRoute path="/teams/:teamId/todos" component={ TodosIndex } />

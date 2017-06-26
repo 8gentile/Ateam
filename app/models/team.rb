@@ -10,5 +10,6 @@ class Team < ActiveRecord::Base
     through: :memberships,
     source: :user
 
+  has_many :todos
 
 end

@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     end
     resources :teams, only: [:create, :show, :update, :edit] do
       resources :todos, only: [:index]
+      #messageboard
+      #schedule
+      #docs
+      #campfire
     end
     resources :memberships, only: [:create]
     resources :todos, except: [:index]

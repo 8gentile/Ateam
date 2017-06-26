@@ -15,13 +15,13 @@ class Nav extends React.Component {
     const teamIds = Object.keys(this.props.teams);
     const teams = teamIds.map( teamId => {
       return (
-        <li key={teamId}>{ this.props.teams[teamId].name }</li>
+        <li key={teamId}><Link to={`/teams/${teamId}`}>{ this.props.teams[teamId].name }</Link></li>
       );
     });
     return (
       <ul className="team-nav">
         <li>
-          <Link to={`/users/${this.props.currentUser.id}`} >Teams</Link>
+          <Link to={`/`} >Teams</Link>
         </li>
         {teams}
       </ul>
