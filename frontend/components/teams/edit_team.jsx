@@ -27,7 +27,9 @@ class TeamEdit extends React.Component {
     const formTitle = "Setup who's on ";
     return (
       <section className="team-edit-panel">
-        <Link to={`/teams/${team.id}`} className="nav-back">← Back to {team.name}</Link>
+        <div>
+          <span>←</span><Link to={`/teams/${team.id}`} className="nav-back"> Back to {team.name}</Link>
+        </div>
         <section className="team-edit-form">
             <h1 className="team-edit-title">{formTitle}<span>{team.name}</span></h1>
               <ul className="header-avatar-list">
