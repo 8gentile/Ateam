@@ -9,6 +9,7 @@ import UserEdit from './user_edit/user_edit_container';
 import TeamsIndex from './teams/teams_index_container';
 import TeamShow from './teams/show_team_container';
 import TeamEdit from './teams/edit_team_container';
+import TodosIndex from './todos/todos_index_container';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <ProtectedRoute exact={true} path="/users/:userId" component={ TeamsIndex } />
           <ProtectedRoute exact={true} path="/teams/:teamId" component={ TeamShow } />
           <ProtectedRoute path="/teams/:teamId/edit" component={ TeamEdit } />
+          <ProtectedRoute path="/teams/:teamId/todos" component={ TodosIndex } />
         </section>
     </div>
   );
