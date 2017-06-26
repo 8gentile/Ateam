@@ -45,11 +45,11 @@ class TeamsIndex extends React.Component {
     this.props.fetchTeams(this.props.currentUser.id);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.teams === nextProps.teams) {
-      this.props.fetchTeams(this.props.currentUser.id);
-    };
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props.teams === nextProps.teams) {
+  //     this.props.fetchTeams(this.props.currentUser.id);
+  //   }
+  // }
 
   render(){
 
@@ -72,7 +72,8 @@ class TeamsIndex extends React.Component {
                 className="button-card-input"
                 onChange={this.handleChange("name")}
                 value={this.state.team.name}
-                placeholder="Name this team"/>
+                placeholder="Name this team"
+              />
               <section>
                 <button type="button-card-submit">
                   <span>Save</span>

@@ -129,7 +129,7 @@
   box-shadow: 0 1px 6px 0px rgba(0,0,0,0.1);
   border-radius: 0.3rem;
   color: #fff;
-  border-bottom-color: rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid #349861;
 }
 
 .team-button-card-true button:last-child {
@@ -141,6 +141,7 @@
   color: #fff;
   border-bottom-color: rgba(0, 0, 0, 0.15);
   margin-left: 0.2rem;
+  border-bottom: 2px solid #8d8d8d;
 }
 
 
