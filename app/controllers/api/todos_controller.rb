@@ -1,6 +1,6 @@
 class Api::TodosController < ApplicationController
   def index
-    @team = Team.find_by(params[:id])
+    @team = Team.find_by(id: params[:team_id])
     @todos = @team.todos
   end
 

@@ -29,17 +29,27 @@ class TodosIndex extends React.Component {
 
   render(){
     const { todos } = this.props;
-    if (!todos.length) return null;
+    const { team } = this.props;
+    if (!team) return null;
 
-    const todoLists = todos.map( list => {
-      return (
-        <Link to={`/teams/${this.props.teamId}/todos/${list.id}`}>
-          <li key={list.id}>
-            { list.title }
-          </li>
-        </Link>
+    if (todos.length) {
+      const todoLists = todos.map( list => {
+        return (
+          <Link to={`/teams/${this.props.teamId}/todos/${list.id}`}>
+            <li key={list.id}>
+              { list.title }
+            </li>
+          </Link>
+        );
+      });      
+
+      var listIndex = () => (
+        <section className="todos-index">
+          <ul>{todoLists}</ul>
+        </section>
       );
-    });
+    }
+
 
     return(
       <section className="todos-index-panel">
@@ -56,11 +66,8 @@ class TodosIndex extends React.Component {
           </div>
 
           {this.state.showForm ? <TodoForm teamId={this.props.team.id}/> : <main></main> }
-          <section className="todos-index">
-            <ul>{todoLists}</ul>
-          </section>
         </section>
-
+        { !todos.length ? <p></p> : listIndex() }
       </section>
     );
   }
