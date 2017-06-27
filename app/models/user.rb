@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
     through: :teams,
     source: :members
 
+  has_many :todos
+
   attr_reader :password
 
   after_initialize :ensure_session_token

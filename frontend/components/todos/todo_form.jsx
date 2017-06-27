@@ -19,8 +19,8 @@ class TodoForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const list = merge({}, this.state);
-    this.props.processForm(list);
-      // .then( action => this.props.history.push(`/teams/${this.props.teamId}/todos`));
+    this.props.processForm(list)
+      .then( this.setState( { title: "", body: ""}));
   }
 
   handleChange(field){

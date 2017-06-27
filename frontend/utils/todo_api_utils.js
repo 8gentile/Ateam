@@ -5,11 +5,10 @@ export const fetchTodos = team_id => {
   });
 };
 
-export const fetchTodo = (id, success) => {
+export const fetchTodo = (todo_id, team_id) => {
   return $.ajax({
     method: 'GET',
-    url: `/api/todos/${id}`,
-    success
+    url: `/api/teams/${team_id}/todos/${todo_id}`,
   });
 };
 

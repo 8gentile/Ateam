@@ -6,8 +6,8 @@ class AddMembersForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        email: "",
-        team_id: this.props.team.id,
+      email: "",
+      team_id: this.props.team.id,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);

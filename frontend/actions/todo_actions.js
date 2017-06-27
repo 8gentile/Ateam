@@ -10,9 +10,9 @@ export function requestTodos(team_id) {
   };
 }
 
-export function requestTodo(id) {
+export function requestTodo(todo_id, team_id) {
   return (dispatch) => {
-    return APIUtil.fetchTodo(id).then(todo => dispatch(receiveTodo(todo)));
+    return APIUtil.fetchTodo(todo_id, team_id).then(todo => dispatch(receiveTodo(todo)));
   };
 }
 

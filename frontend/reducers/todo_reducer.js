@@ -18,8 +18,8 @@ const todosReducer = (state = {}, action) => {
       newState = merge({}, state);
       delete newState[action.todo.id];
       return newState;
-    case TODO_ERROR:
-      alert(action.error);
+    // case TODO_ERROR:
+    //   alert(action.error);
     default:
       return state;
   }

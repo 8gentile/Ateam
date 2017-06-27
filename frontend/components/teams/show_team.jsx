@@ -33,17 +33,30 @@ class TeamShow extends React.Component {
                 className="edit-members-link"> Add/remove people...</Link>
             </section>
         </div>
-        <section className="team-show-nav">
-          <ul>
-            <li>
-              <Link to={`/teams/${this.props.team.id}/todos`}>Todos</Link>
-            </li>
-            <li>
-              <Link to={`/teams/${this.props.team.id}/board`}>Message Board</Link>
-            </li>
-            <li>
-              <Link to={`/teams/${this.props.team.id}/schedule`}>Schedule</Link>
-            </li>
+        <section className="team-show-nav-panel">
+          <ul className="team-show-nav">
+            <Link to={`/teams/${this.props.team.id}/todos`}>
+              <li>
+                <h2>To-dos</h2>
+                <i className="fa fa-list-ul fa-5x" aria-hidden="true"></i>
+                <p>Make lists of work that needs to get done.</p>
+              </li>
+            </Link>
+
+            <Link to={`/teams/${this.props.team.id}/board`}>
+              <li>
+                <h2>Message Board</h2>
+                <i className="fa fa-thumb-tack fa-5x" aria-hidden="true"></i>
+                <p>Post announcements, pitch ideas, progress updates etc.</p>
+              </li>
+            </Link>
+            <Link to={`/teams/${this.props.team.id}/schedule`}>
+              <li>
+                <h2>Schedule</h2>
+                <i className="fa fa-calendar fa-5x" aria-hidden="true"></i>
+                <p>Set important dates on a shared schedule.</p>
+              </li>
+            </Link>
           </ul>
         </section>
       </section>

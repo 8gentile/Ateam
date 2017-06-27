@@ -13,11 +13,12 @@ class Api::TodosController < ApplicationController
     end
   end
 
-  def update
-
+  def show
+    @list = Todo.find_by(params[:id])
+    render 'api/todos/show'
   end
 
-  def show
+  def update
 
   end
 
