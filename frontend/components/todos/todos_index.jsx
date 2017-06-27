@@ -66,8 +66,8 @@ class TodosIndex extends React.Component {
           </div>
 
           {this.state.showForm ? <TodoForm teamId={this.props.team.id}/> : <main></main> }
+          { !todos.length ? <p></p> : listIndex() }
         </section>
-        { !todos.length ? <p></p> : listIndex() }
       </section>
     );
   }

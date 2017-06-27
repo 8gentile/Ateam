@@ -23,6 +23,7 @@ id	             |  integer	   |   primary key
 user_id	         |  	integer   |	foreign key, indexed
 team_id	       |  integer	   |   foreign key, indexed
 
+
 ## INVITES
 
 column name       | data type |	details
