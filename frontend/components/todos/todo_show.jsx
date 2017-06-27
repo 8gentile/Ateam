@@ -18,6 +18,14 @@ class TodoShow extends React.Component {
     this.props.requestTodo(this.props.todoId, this.props.team.id);
   }
 
+  componentWillReceiveProps(nextProps){
+    const numOldItems = Object.keys(this.props.todo.items).length;
+    const numNewItems = Object.keys(nextProps.todo.items).length;
+    if ( numOldItems < numNewItems ) {
+      this.setState({ showForm: true })
+    };
+  }
+
   handleClick(e){
     if (this.state.showForm) {
       this.setState({showForm: false});
@@ -32,17 +40,24 @@ class TodoShow extends React.Component {
     if (!todo) return null;
     if (!team) return null;
 
+    const listItems = Object.keys(todo.items).map( itemId => (
+      <li key={itemId}>
+        { todo.items[itemId].title }
+      </li>
+    ));
+
     return(
       <section className="todos-index-panel">
         <TeamNav
           team={this.props.team}
         />
-
         <section className="todos-form">
-          <button onClick={this.handleClick}>
+          <h1>{ this.props.todo.title }</h1>
+          <ul>{ listItems }</ul>
+          <div onClick={this.handleClick}>
             Add a to-do
-          </button>
-          {this.state.showForm ? <ItemForm todoId={this.props.todo.id}/> : <div></div> }
+          </div>
+          {this.state.showForm ? <ItemForm todoId={this.props.todo.id}/> : <p></p> }
         </section>
 
         <section className="todos-index">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626151538) do
+ActiveRecord::Schema.define(version: 20170627163336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(version: 20170626151538) do
 
   add_index "invites", ["email"], name: "index_invites_on_email", using: :btree
   add_index "invites", ["team_id"], name: "index_invites_on_team_id", using: :btree
+
+  create_table "items", force: :cascade do |t|
+    t.string   "title",                       null: false
+    t.boolean  "done",        default: false
+    t.integer  "todo_id",                     null: false
+    t.integer  "schedule_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "items", ["schedule_id"], name: "index_items_on_schedule_id", using: :btree
+  add_index "items", ["todo_id"], name: "index_items_on_todo_id", using: :btree
 
   create_table "memberships", force: :cascade do |t|
     t.integer  "user_id"

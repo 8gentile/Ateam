@@ -1,22 +1,23 @@
 import { connect } from 'react-redux';
-import TodoForm from './todo_form';
-// import { createTodo, updateTodo } from '../../actions/todo_actions';
+import ItemForm from './item_form';
+import { createItem } from '../../actions/item_actions';
 
 
-const mapStateToProps = ({ session }) => {
+const mapStateToProps = ( state, ownProps ) => {
   return {
-    user_id: session.currentUser.id,
+    todoId: ownProps.todoId,
   };
 };
+ // teamId: ownProps.match.params.teamId,
+
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    // processForm: (todo) => dispatch(createTodo({todo})),
-    // clearErrors: () => dispatch(clearErrors()),
+    processForm: (item) => dispatch(createItem( item )),
   };
 };
 
 export default connect(
   mapStateToProps,
-  null
-)(TodoForm);
+  mapDispatchToProps,
+)(ItemForm);

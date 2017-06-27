@@ -35,8 +35,8 @@ class TodosIndex extends React.Component {
     if (todos.length) {
       const todoLists = todos.map( list => {
         return (
-          <Link to={`/teams/${this.props.teamId}/todos/${list.id}`}>
-            <li key={list.id}>
+          <Link to={`/teams/${this.props.teamId}/todos/${list.id}`} key={list.id}>
+            <li >
               { list.title }
             </li>
           </Link>

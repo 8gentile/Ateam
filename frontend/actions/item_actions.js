@@ -1,4 +1,5 @@
 import * as APIUtil from '../utils/item_api_utils';
+import { receiveTodo } from './todo_actions';
 
 export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
 export const RECEIVE_ITEM = "RECEIVE_ITEM";
@@ -15,7 +16,7 @@ export function requestItems(teamId, todoId) {
 export function createItem(item) {
   return (dispatch) => {
     return APIUtil.createItem(item)
-      .then(item => dispatch(receiveItem(item)));
+      .then(todo => dispatch(receiveTodo(todo)));
   };
 }
 

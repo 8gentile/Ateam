@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
     resources :teams, only: [:create, :show, :update, :edit] do
       resources :todos, except: [:destroy, :create] do 
-        resources :items, except: [:destroy, :create]
+        resources :items, only: [:update]
       end
       #messageboard
       #schedule
