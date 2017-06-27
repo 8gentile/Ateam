@@ -9,13 +9,13 @@ Rails.application.routes.draw do
       resources :teams, only: [:index]
     end
     resources :teams, only: [:create, :show, :update, :edit] do
-      resources :todos, except: [:destroy]
+      resources :todos, except: [:destroy, :create]
       #messageboard
       #schedule
       #docs
       #campfire
     end
     resources :memberships, only: [:create]
-    resources :todos, only: [:destroy]
+    resources :todos, only: [:destroy, :create]
   end
 end

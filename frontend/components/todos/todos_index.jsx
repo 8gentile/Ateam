@@ -33,9 +33,11 @@ class TodosIndex extends React.Component {
 
     const todoLists = todos.map( list => {
       return (
-        <li key={list.id}>
-          <Link to={`/teams/${this.props.teamId}/todos/${list.id}`}>{ list.title }</Link>
-        </li>
+        <Link to={`/teams/${this.props.teamId}/todos/${list.id}`}>
+          <li key={list.id}>
+            { list.title }
+          </li>
+        </Link>
       );
     });
 
@@ -46,18 +48,19 @@ class TodosIndex extends React.Component {
         />
 
         <section className="todos-form">
+          <h1>To-dos</h1>
           <div onClick={this.handleClick}>
             <TodoFormButton
               numTodos={todos.length}
               />
           </div>
 
-          {this.state.showForm ? <TodoForm teamId={this.props.team.id}/> : <div></div> }
+          {this.state.showForm ? <TodoForm teamId={this.props.team.id}/> : <main></main> }
+          <section className="todos-index">
+            <ul>{todoLists}</ul>
+          </section>
         </section>
 
-        <section className="todos-index">
-          <ul>{todoLists}</ul>
-        </section>
       </section>
     );
   }
