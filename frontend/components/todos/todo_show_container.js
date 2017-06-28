@@ -15,6 +15,7 @@ const mapStateToProps = ({ todos, teams, session }, { match }) => {
     todo: todos[match.params.todoId],
     currentUser: session.currentUser,
     todoId: match.params.todoId,
+    teamId: match.params.teamId,
     team: teams.entities[match.params.teamId],
   };
 };

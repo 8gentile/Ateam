@@ -83,22 +83,26 @@ start_date	| datetime	|
 end_date	| datetime	|
 user_id	| integer	| foreign key, indexed
 
-## BOARDS
+## POSTS
+
+column name       | data type | details
+-----------------|:-----------:|--------------------------:|
+id  | integer | primary key
+title   | string |
+body    | text |
+team_id | integer | foreign key, indexed
+user_id | integer |foreign key, indexed
+
+## COMMENTS
 
 column name       | data type |	details
 -----------------|:-----------:|--------------------------:|
 id	|integer | primary key
-team_id	|integer | foreign key, indexed, unique
+body | text | not null
+user_id	|integer | foreign key, indexed
+post_id |integer | foreign key, indexed
 
 
-## POSTS
-
-column name       | data type |	details
------------------|:-----------:|--------------------------:|
-id	| integer | primary key
-title	| string |
-body	| text |
-user_id	| integer |foreign key, indexed
 
 ## ATTENDEES
 

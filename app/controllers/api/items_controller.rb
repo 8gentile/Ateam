@@ -21,8 +21,8 @@ class Api::ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    @todo = @item.todo
-    @item.destroy!
+    @item.destroy
+    @todo = Todo.find(@item[:todo_id])
     render 'api/todos/show'
   end
 

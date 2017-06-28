@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :todos, except: [:destroy, :create] do 
         resources :items, only: [:update]
       end
-      #messageboard
+      resources :posts, only: [:index]
       #schedule
       #docs
       #campfire
@@ -20,5 +20,6 @@ Rails.application.routes.draw do
     resources :memberships, only: [:create]
     resources :todos, only: [:destroy, :create]
     resources :items, only: [:destroy, :create]
+    resources :posts, only: [:destroy, :create, :update, :show]
   end
 end

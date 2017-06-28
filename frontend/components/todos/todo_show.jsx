@@ -18,16 +18,18 @@ class TodoShow extends React.Component {
   }
 
   componentDidMount(){
-    this.props.requestTodo(this.props.todoId, this.props.team.id);
+    this.props.requestTodo(this.props.todoId, this.props.teamId);
   }
 
   componentWillReceiveProps(nextProps){
-    if (this.props.todo) return null;
-    const numOldItems = Object.keys(this.props.todo.items).length;
-    const numNewItems = Object.keys(nextProps.todo.items).length;
-    if ( numOldItems < numNewItems ) {
-      this.setState({ showForm: true })
-    };
+    if (!this.props.todo) return null;
+    if (!nextProps.todo) return null;
+
+    const numOldItems = this.props.todo.items.length;
+    const numNewItems = nextProps.todo.items.length;
+    if ( numOldItems !== numNewItems ) {
+      this.setState({ showForm: true });
+    }
   }
 
   handleClick(e){
