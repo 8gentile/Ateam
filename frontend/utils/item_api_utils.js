@@ -10,7 +10,7 @@ export const createItem = (item) => {
   return $.ajax({
     method: 'POST',
     url: `/api/items`,
-    data: {item} 
+    data: { item } 
   });
 };
 

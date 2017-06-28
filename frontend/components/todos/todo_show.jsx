@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import TeamNav from '../teams/team_nav';
 import ItemForm from './item_form_container';
-
+import merge from 'lodash/merge';
 
 class TodoShow extends React.Component {
   constructor(props){
@@ -11,6 +11,7 @@ class TodoShow extends React.Component {
       showForm: false,
     };
 
+    this.toggleDone = this.toggleDone.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -34,17 +35,50 @@ class TodoShow extends React.Component {
     }
   }
 
+  toggleDone(item) {
+    return (e) => {
+      e.preventDefault();
+      if (!item.done) {
+        const doneItem = merge({}, item, { done: true });
+        this.props.updateItem(doneItem);
+      } else {
+        const undoneItem = merge({}, item, { done: false });
+        this.props.updateItem(undoneItem);
+      }
+    };
+  }
+
   render(){
     const { todo } = this.props;
     const { team } = this.props;
     if (!todo) return null;
     if (!team) return null;
 
-    const listItems = Object.keys(todo.items).map( itemId => (
-      <li key={itemId}>
-        { todo.items[itemId].title }
-      </li>
-    ));
+    const pendingItems = todo.items.map( item => {
+      if (!item.done) {
+        return (
+          <li key={item.id}>
+            <button onClick={this.toggleDone(item)}>
+              <i className="fa fa-circle-thin" aria-hidden="true"></i>
+            </button>
+            { item.title }
+          </li>
+        );
+      }
+    });
+
+    const finishedItems = todo.items.map( item => {
+      if (item.done) {
+        return (
+          <li key={item.id}>
+            <button onClick={this.toggleDone(item)}>
+              <i className="fa fa-check-circle" aria-hidden="true"></i>
+            </button>
+            { item.title }
+          </li>
+        );
+      }
+    });
 
     return(
       <section className="todos-index-panel">
@@ -53,11 +87,12 @@ class TodoShow extends React.Component {
         />
         <section className="todos-form">
           <h1>{ this.props.todo.title }</h1>
-          <ul>{ listItems }</ul>
+          <ul>{ pendingItems }</ul>
           <div onClick={this.handleClick}>
             Add a to-do
           </div>
           {this.state.showForm ? <ItemForm todoId={this.props.todo.id}/> : <p></p> }
+          <ul>{ finishedItems }</ul>
         </section>
 
         <section className="todos-index">

@@ -23,7 +23,7 @@ export function createItem(item) {
 export function updateItem(item) {
   return (dispatch) => {
     return APIUtil.updateItem(item)
-      .then(item => dispatch(receiveItem(item)));
+      .then(list => dispatch(receiveTodo(list)));
   };
 }
 
