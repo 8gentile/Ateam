@@ -115,7 +115,9 @@
   flex-wrap: wrap;
   justify-content: center;
   h4 {
-    line-height: 0;
+    line-height: 1;
+    width: 100%;
+    word-wrap: break-word;
   }
 
   a > li {
