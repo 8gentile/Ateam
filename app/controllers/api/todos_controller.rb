@@ -5,11 +5,11 @@ class Api::TodosController < ApplicationController
   end
 
   def create
-    @list = Todo.new(todo_params)
-    if @list.save
-      render json: @list
+    @todo = Todo.new(todo_params)
+    if @todo.save
+      render 'api/todos/show'
     else
-      render json: @list.errors.full_messages, status: 422
+      render json: @todo.errors.full_messages, status: 422
     end
   end
 
@@ -18,8 +18,10 @@ class Api::TodosController < ApplicationController
     render 'api/todos/show'
   end
 
-  def update
-
+  def destroy
+    @todo = Todo.find(params[:id])
+    @todo.destroy!
+    render 'api/todos/show'
   end
 
   private

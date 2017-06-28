@@ -20,7 +20,10 @@ class Api::ItemsController < ApplicationController
   end
 
   def destroy
-    
+    @item = Item.find(params[:id])
+    @todo = @item.todo
+    @item.destroy!
+    render 'api/todos/show'
   end
 
   private 

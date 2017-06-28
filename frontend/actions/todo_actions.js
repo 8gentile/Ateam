@@ -30,9 +30,9 @@ export function updateTodo(todo) {
   };
 }
 
-export function destroyTodo(todo) {
+export function destroyTodo(todoId) {
   return (dispatch) => {
-    return APIUtil.destroyTodo(todo).then(todo => dispatch(removeTodo(todo)));
+    return APIUtil.destroyTodo(todoId).then(todo => dispatch(removeTodo(todo)));
   };
 }
 

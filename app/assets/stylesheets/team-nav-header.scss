@@ -24,7 +24,8 @@
   ul {
     display: flex;
     justify-content: space-around;
-    width: 52%;
+    width: 90%;
+    flex-wrap: wrap;
   }
 
   li {
@@ -38,6 +39,7 @@
     padding: 1rem;
     border-radius: 5px 5px 5px 5px;
     box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
+    margin: 0.5rem;
   }
 
   i {

@@ -13,19 +13,29 @@
   flex-direction: column;
   background: white;
   width: 768px;
-  height: 80%;
+  height: 100vh;
   align-items: center;
+  position: relative;
 
   h1 {
     font-size: 28px;
     font-weight: 700;
     text-align: center;
     color: #283c46;
+    margin-top: 0.5rem;
+
+    i {
+      content: "";
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      cursor: pointer;
+    }
   }
 
   div {
-    width: 160px;
-    height: 50px;
+    width: 155px;
+    min-height: 40px;
     background: #3cb371;
     color: white;
     font-weight: 700;
@@ -53,7 +63,7 @@
 
   input {
     margin: 2px 0;
-    width: 90%;
+    width: 92.5%;
     border: 1px solid #bfbfbf;
     border-radius: 4px;
     padding: 8px 5px;
@@ -66,20 +76,49 @@
     border: 1px solid #D9F4FB;
     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   }
+
+  button {
+    width: 9.5rem;
+  }
 }
 
 
 .todos-index {
   display: flex;
   height: 100%;
-  ul{
+  flex-wrap: wrap;
+  width: 90%;
+  justify-content: center;
+}
+
+.list-card {
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+
+  ul {
     display: flex;
-    height: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: baseline;
   }
 
-  li {
+  span {
+    margin-left: 0.5rem;
+  }
+}
+
+.card-holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  h4 {
+    line-height: 0;
+  }
+
+  a > li {
     background: #f2edff;
     height: 260px;
     width: 200px;
@@ -87,6 +126,6 @@
     text-align: center;
     box-shadow: 0 1px 6px 0 rgba(0,0,0,0.1);
     border-radius: 4px;
-    padding-top: 1rem;
+    padding: 1rem;
   }
 }

@@ -30,7 +30,7 @@ export function updateItem(item) {
 export function destroyItem(itemId) {
   return (dispatch) => {
     return APIUtil.destroyItem(itemId)
-      .then(item => dispatch(removeitem(item)));
+      .then(todo => dispatch(receiveTodo(todo)));
   };
 }
 

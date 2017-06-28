@@ -31,21 +31,46 @@ class TodosIndex extends React.Component {
     const { todos } = this.props;
     const { team } = this.props;
     if (!team) return null;
+    let items = false;
+    let listItems = [];
 
     if (todos.length) {
       const todoLists = todos.map( list => {
+        if (list.items) {
+          items = true;
+          listItems = list.items.map( item => {
+            if (!item.done) {
+              return (
+                <li key={item.id}>
+                  <i className="fa fa-circle-thin" aria-hidden="true"></i>
+                  <span>{ item.title }</span>
+                </li>
+              );
+            } else {
+              return (
+                <li key={item.id}>
+                  <i className="fa fa-check-circle" aria-hidden="true"></i>
+                  <span>{ item.title }</span>
+                </li>
+              );
+            }
+          });
+        }
+
         return (
           <Link to={`/teams/${this.props.teamId}/todos/${list.id}`} key={list.id}>
-            <li >
-              { list.title }
+            <li className="list-card">
+              <h4>{ list.title }</h4>
+              <ul>{items ? listItems.slice(0, 6) : <li></li>}</ul>
             </li>
           </Link>
         );
       });      
-
+      listItems = [];
+      items = false;
       var listIndex = () => (
         <section className="todos-index">
-          <ul>{todoLists}</ul>
+          <ul className="card-holder">{todoLists}</ul>
         </section>
       );
     }

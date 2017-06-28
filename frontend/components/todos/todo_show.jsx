@@ -13,6 +13,8 @@ class TodoShow extends React.Component {
 
     this.toggleDone = this.toggleDone.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.removeItem = this.removeItem.bind(this);
+    this.removeList = this.removeList.bind(this);
   }
 
   componentDidMount(){
@@ -20,6 +22,7 @@ class TodoShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
+    if (this.props.todo) return null;
     const numOldItems = Object.keys(this.props.todo.items).length;
     const numNewItems = Object.keys(nextProps.todo.items).length;
     if ( numOldItems < numNewItems ) {
@@ -48,6 +51,21 @@ class TodoShow extends React.Component {
     };
   }
 
+  removeItem(itemId){
+    return (e) => {
+      e.preventDefault();
+      this.props.destroyItem(itemId);
+    };
+  }
+
+  removeList(todoId) {
+    return (e) => {
+      e.preventDefault();
+      this.props.destroyTodo(todoId)
+        .then(this.props.history.push(`/teams/${this.props.team.id}/todos`));
+    }
+  }
+
   render(){
     const { todo } = this.props;
     const { team } = this.props;
@@ -61,7 +79,10 @@ class TodoShow extends React.Component {
             <button onClick={this.toggleDone(item)}>
               <i className="fa fa-circle-thin" aria-hidden="true"></i>
             </button>
-            { item.title }
+            <span>{ item.title }</span>
+            <button onClick={this.removeItem(item.id)}>
+              <i className="fa fa-times" aria-hidden="true"></i>
+            </button>
           </li>
         );
       }
@@ -74,7 +95,10 @@ class TodoShow extends React.Component {
             <button onClick={this.toggleDone(item)}>
               <i className="fa fa-check-circle" aria-hidden="true"></i>
             </button>
-            { item.title }
+            <span>{ item.title }</span>
+            <button onClick={this.removeItem(item.id)}>
+              <i className="fa fa-times" aria-hidden="true"></i>
+            </button>
           </li>
         );
       }
@@ -86,13 +110,17 @@ class TodoShow extends React.Component {
           team={this.props.team}
         />
         <section className="todos-form">
-          <h1>{ this.props.todo.title }</h1>
-          <ul>{ pendingItems }</ul>
+          <h1 className="list-title">{ this.props.todo.title }
+            <i className="fa fa-trash-o" aria-hidden="true" 
+              onClick={this.removeList(todo.id)}></i>
+          </h1>
+
+          <ul className="icons-items">{ pendingItems }</ul>
           <div onClick={this.handleClick}>
             Add a to-do
           </div>
           {this.state.showForm ? <ItemForm todoId={this.props.todo.id}/> : <p></p> }
-          <ul>{ finishedItems }</ul>
+          <ul className="icons-items">{ finishedItems }</ul>
         </section>
 
         <section className="todos-index">

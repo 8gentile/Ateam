@@ -1,3 +1,25 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.icons-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90%;
+
+  li{
+    display: flex;
+    justify-content: center;
+  }
+  button:first-child {
+   color: #3cb371;
+  }
+
+  button:last-child{
+    color: rgba(133, 110, 198, 0.4);
+  }
+
+  span {
+    margin: 0 1rem 0 0.3rem;
+  }
+}
