@@ -7,8 +7,11 @@
 }
 
 .avatar-big{
-  height: 60px;
-  width: 60px;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  background-color: #FBF8F4;
+  border: 1px solid #FBF8F4;
 }
 
 .avatar-medium {
@@ -17,7 +20,6 @@
   border-radius: 100%;
   background-color: #FBF8F4;
   border: 1px solid #FBF8F4;
-  padding: 0.5em 0.2em;
   margin-right: 1rem;
 }
 

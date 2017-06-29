@@ -13,9 +13,12 @@
   flex-direction: column;
   background: white;
   width: 768px;
-  height: 100vh;
+  height: 100%;
   align-items: center;
   position: relative;
+  padding-bottom: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 7px 1px rgba(76, 51, 152, 0.25);
 
   h1 {
     font-size: 28px;

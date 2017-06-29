@@ -17,9 +17,23 @@ class Api::PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    render 'api/posts/show'
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      render 'api/posts/show'
+    else
+      render json: @post.errors.full_messages, status: 422
+    end
+  end
 
   private
   def post_params
-    params.require(:post).require(:title, :body, :user_id, :team_id)
+    params.require(:post).permit(:title, :body, :user_id, :team_id)
   end
 end

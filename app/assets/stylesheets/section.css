@@ -1,7 +1,8 @@
 .bodySection {
   border-top: 1px solid #ddd6cd;
   background: #F5EFE6;
-  height: 100vh;
+  min-height: 80rem;
+  padding-bottom: 1.5rem;
 }
 
 .CTAbutton {

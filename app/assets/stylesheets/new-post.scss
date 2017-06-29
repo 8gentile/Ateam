@@ -2,12 +2,39 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  div {
+  padding-top: 2rem;
+
+  div:first-child {
+    text-align: center;
+  }
+
+  div:last-child {
     display: flex;
     flex-direction: column;
     padding: 5rem 6rem 6rem;
     background: #fff;
     width: 60%;
+    text-align: left;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+    border-radius: 0.6rem;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      font-weight: 700;
+      font-size: 18px;
+      margin: 1rem;
+      padding: 0.2rem;
+      width: 90%;
+    }
+
+    input:focus {
+      border-bottom: 1px solid #283c4b;
+    }
+    textarea {
+      margin: 1rem;
+      width: 90%;
+    }
   }
 
   section {
@@ -15,5 +42,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  button {
+    text-align: center;
+    background-color: #1b6ac9;
+    border-color: #1b6ac9;
+    border-bottom-color: #175aab;
+    color: #fff;
+    width: inherit;
+    border-radius: 0.3rem;
+    padding: 0.3rem;
+    font-weight: 700;
+  }
+
+  button:active {
+    background-color: #175aab;
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import merge from 'lodash/merge';
 
 class PostNew extends React.Component {
 	constructor(props) {
@@ -22,7 +23,7 @@ class PostNew extends React.Component {
     e.preventDefault();
     const post = merge({}, this.state);
     this.props.processForm(post)
-      .then( post => this.props.history.push(`/teams/${this.props.teamId}/posts/${post.id}`));
+      .then( action => this.props.history.push(`/posts/${action.post.id}`));
   }
 
   handleChange(field){
@@ -36,7 +37,10 @@ class PostNew extends React.Component {
     if (!team) return null;
 		return(
 			<section className="new-post-panel">
-        <span>←</span><Link to={`/teams/${team.id}/posts`} className="nav-back"> Back to {team.name}'s Message Board</Link>
+        <div>
+          <span>←</span>
+          <Link to={`/teams/${team.id}/posts`} className="nav-back"> Back to {team.name}'s Message Board</Link>
+        </div>
         <section>
 
   				<div>
@@ -45,11 +49,11 @@ class PostNew extends React.Component {
                   value={this.state.title}
                   placeholder="Title"/>
             <textarea rows="6" cols="50"
-                  onChange={this.handleChange("password")}
-                  value={this.state.password}
+                  onChange={this.handleChange("body")}
+                  value={this.state.body}
                   placeholder="Body">
             </textarea>
-            <button onClick={this.handleSubmit}></button>
+            <button onClick={this.handleSubmit}>Post this message</button>
   				</div>
         </section>
 			</section>

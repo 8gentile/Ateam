@@ -43,7 +43,7 @@ class PostIndex extends React.Component {
         />
         <section className="post-index">
 					<h1>Message Board</h1>
-					<Link to={`/teams/${this.props.teamId}/posts/new`}><span>Post a message</span></Link>
+					<Link to={`/teams/${this.props.teamId}/posts/new`}><span className="post-message-button">Post a message</span></Link>
 					<ul>{ postItems }</ul>
         </section>
 			</section>
