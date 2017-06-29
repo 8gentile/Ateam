@@ -22,14 +22,16 @@ class PostIndex extends React.Component {
 		const postItems = posts.map( post => {
 			return (
 				<li className="post-item" key={post.id}>
-					<img src={post.author.avatar_url} className="avatar-medium"/>
-					<div>
-						<section>
-							<p>{post.title}</p>
-							<i className="fa fa-comments" aria-hidden="true">{post.comments.length}</i>
-						</section>
-						<span>by {post.author.fname} {post.author.lname}</span>
-					</div>
+					<Link to={`/posts/${post.id}`}>
+						<img src={post.author.avatar_url} className="avatar-medium"/>
+						<div>
+							<section>
+								<p>{post.title}</p>
+								<i className="fa fa-comments" aria-hidden="true">{post.comments.length}</i>
+							</section>
+							<span>by {post.author.fname} {post.author.lname}</span>
+						</div>
+					</Link>
 				</li>
 			);
 		});
@@ -41,7 +43,7 @@ class PostIndex extends React.Component {
         />
         <section className="post-index">
 					<h1>Message Board</h1>
-					<Link to={`/posts/new`}><span>Post a message</span></Link>
+					<Link to={`/teams/${this.props.teamId}/posts/new`}><span>Post a message</span></Link>
 					<ul>{ postItems }</ul>
         </section>
 			</section>

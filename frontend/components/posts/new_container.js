@@ -3,13 +3,14 @@ import { withRouter } from 'react-router-dom';
 import PostNew from './new';
 import { createPost } from '../../actions/post_actions';
 
-const mapStateToProps = ({ session }, { match }) => ({
+const mapStateToProps = ({ teams, session }, { match }) => ({
   userId: session.currentUser.id,
   teamId: match.params.teamId,
+  team: teams.entities[match.params.teamId],
 });
 
 const mapDispatchToProps = dispatch => ({
-  createPost: post => dispatch(createPost(post)),
+  processForm: post => dispatch(createPost(post)),
 });
 
 export default withRouter(connect(

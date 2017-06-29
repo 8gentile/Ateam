@@ -1,0 +1,19 @@
+.new-post-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  div {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 6rem 6rem;
+    background: #fff;
+    width: 60%;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

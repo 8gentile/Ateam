@@ -13,6 +13,7 @@ import TodosIndex from './todos/todos_index_container';
 import TodoShow from './todos/todo_show_container';
 import PostIndex from './posts/index_container';
 import PostNew  from './posts/new_container';
+import PostShow from './posts/show_container';
 
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
           <ProtectedRoute exact={true} path="/teams/:teamId/todos/:todoId" component={ TodoShow } />
           <ProtectedRoute exact={true} path="/teams/:teamId/posts" component={ PostIndex } />
           <ProtectedRoute exact={true} path="/teams/:teamId/posts/new" component={ PostNew } />
+          <ProtectedRoute path="/posts/:postId" component={ PostShow } />
         </section>
     </div>
   );

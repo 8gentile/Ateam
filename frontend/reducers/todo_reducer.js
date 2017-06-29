@@ -1,7 +1,7 @@
 import { RECEIVE_TODOS,
          RECEIVE_TODO,
          REMOVE_TODO,
-         TODO_ERROR 
+         TODO_ERROR
        } from '../actions/todo_actions';
 import merge from 'lodash/merge';
 
