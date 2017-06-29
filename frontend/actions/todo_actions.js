@@ -6,13 +6,15 @@ export const TODO_ERROR = "TODO_ERROR";
 
 export function requestTodos(team_id) {
   return (dispatch) => {
-    return APIUtil.fetchTodos(team_id).then(todos => dispatch(receiveTodos(todos)));
+    return APIUtil.fetchTodos(team_id)
+      .then(todos => dispatch(receiveTodos(todos)));
   };
 }
 
 export function requestTodo(todo_id, team_id) {
   return (dispatch) => {
-    return APIUtil.fetchTodo(todo_id, team_id).then(todo => dispatch(receiveTodo(todo)));
+    return APIUtil.fetchTodo(todo_id, team_id)
+      .then(todo => dispatch(receiveTodo(todo)));
   };
 }
 

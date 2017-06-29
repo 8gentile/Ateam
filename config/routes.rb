@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :todos, except: [:destroy, :create] do 
         resources :items, only: [:update]
       end
-      resources :posts, only: [:index]
+      resources :posts, only: [:index, :new]
       #schedule
       #docs
       #campfire

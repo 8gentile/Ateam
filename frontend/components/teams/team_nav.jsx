@@ -12,7 +12,7 @@ const TeamNav = (props) => {
               <i className="fa fa-list-ul fa-2x" aria-hidden="true"></i>
             </li>
           </Link>
-          <Link to={`/teams/${props.team.id}/board`}>
+          <Link to={`/teams/${props.team.id}/posts`}>
             <li>
               <h3>Message Board</h3>
                <i className="fa fa-thumb-tack fa-2x" aria-hidden="true"></i>

@@ -1,7 +1,7 @@
 {
   "name": "W7D5",
   "version": "1.0.0",
-  "description": "",
+  "description": "== README",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,8 +24,11 @@
     "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "eslint": "^4.1.1",
+    "quill": "^1.2.6",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-quill": "^1.0.0-rc.2",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
@@ -33,5 +36,17 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "webpack": "^2.6.1"
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "devDependencies": {
+    "eslint": "^4.1.1",
+    "eslint-plugin-react": "^7.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/8gentile/Ateam.git"
   }
 }

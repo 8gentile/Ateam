@@ -11,6 +11,8 @@ import TeamShow from './teams/show_team_container';
 import TeamEdit from './teams/edit_team_container';
 import TodosIndex from './todos/todos_index_container';
 import TodoShow from './todos/todo_show_container';
+import PostIndex from './posts/index_container';
+import PostNew  from './posts/new_container';
 
 
 const App = () => {
@@ -32,6 +34,8 @@ const App = () => {
           <ProtectedRoute path="/teams/:teamId/edit" component={ TeamEdit } />
           <ProtectedRoute exact={true} path="/teams/:teamId/todos" component={ TodosIndex } />
           <ProtectedRoute exact={true} path="/teams/:teamId/todos/:todoId" component={ TodoShow } />
+          <ProtectedRoute exact={true} path="/teams/:teamId/posts" component={ PostIndex } />
+          <ProtectedRoute exact={true} path="/teams/:teamId/posts/new" component={ PostNew } />
         </section>
     </div>
   );

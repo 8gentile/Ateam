@@ -9,4 +9,9 @@ json.set! post.id do
   json.comments do 
 		json.array! comment_ids
   end
+
+  json.author do 
+  	json.extract! post.user, :id, :fname, :lname
+  	json.avatar_url asset_path(post.user.avatar.url)
+  end
 end

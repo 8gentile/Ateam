@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import TodosIndex from './todos_index';
 import { requestTodos, createTodo, updateTodo, destroyTodo } from '../../actions/todo_actions';
-import { allTodos } from '../../reducers/selectors';
+import allTodos from '../../reducers/selectors';
 
 const mapStateToProps = ({ teams, todos }, { match }) => ({
   todos: allTodos(todos),

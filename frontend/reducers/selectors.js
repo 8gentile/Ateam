@@ -1,5 +1,11 @@
-export const allTodos = ( todos ) => Object.keys(todos).map(id => todos[id]);
-export const singleTodo = ( todos ) => Object.keys(todos).map(id => todos[id]);
+const allThings = ( things ) => Object.keys(things).map(id => things[id]);
+
+
+export default allThings;
+
+
+
+// export const singleTodo = ( todos ) => Object.keys(todos).map(id => todos[id]);
 
 
 // export const stepsByTodoId = ({ steps }, todo_id) => {

@@ -43,7 +43,7 @@ class TeamShow extends React.Component {
               </li>
             </Link>
 
-            <Link to={`/teams/${this.props.team.id}/board`}>
+            <Link to={`/teams/${this.props.team.id}/posts`}>
               <li>
                 <h2>Message Board</h2>
                 <i className="fa fa-thumb-tack fa-5x" aria-hidden="true"></i>
