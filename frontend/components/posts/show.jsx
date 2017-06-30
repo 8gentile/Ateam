@@ -8,6 +8,7 @@ class PostShow extends React.Component {
   constructor(props){
     super(props);
 
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -15,7 +16,13 @@ class PostShow extends React.Component {
       .then(this.props.fetchUsers(this.props.userId));
   }
 
-  // replace 'users' logic with comments and package the author within the comments
+  handleClick(commentId){
+    return (e) => {
+      e.preventDefault();
+      if (true) {}
+      this.props.destroyComment(commentId);
+    };
+  }
 
   render(){
     const { post } = this.props;
@@ -34,7 +41,20 @@ class PostShow extends React.Component {
       ],
     }
 
+    //export this
     const comments = post.comments.map( comment => {
+      const removeComment = () => {
+        if (comment.user_id === this.props.userId) {
+          return(
+            <span className="remove-comment">
+              <i className="fa fa-trash-o" aria-hidden="true" 
+                onClick={this.handleClick(comment.id)}></i>
+            </span>
+          );
+        } else {
+          return (<p></p>);
+        }
+      }
       return(
         <li className="comment-item" key={comment.id}>
             <img src={users[0][comment.user_id].avatar_url} className="avatar-medium"/>
@@ -42,6 +62,7 @@ class PostShow extends React.Component {
               <span><strong>{users[0][comment.user_id].fname} {users[0][comment.user_id].lname}</strong>, {users[0][comment.user_id].email}</span>
               <div dangerouslySetInnerHTML={{__html: comment.body}}></div>
             </section>
+            {removeComment()}
         </li>
       );
     });
@@ -63,8 +84,8 @@ class PostShow extends React.Component {
         <section className="comments">
           <ul>{ comments }</ul>
           <NewComment
-            processForm={this.props.createPostComment(userId, postId)}
-            fetchParent={this.props.fetchPost(postId)}
+            processForm={this.props.createPostComment}
+            fetchParent={this.props.fetchPost}
             userId={this.props.userId}
             parentId={this.props.postId}
             users={this.props.users} />

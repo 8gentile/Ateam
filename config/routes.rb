@@ -21,5 +21,7 @@ Rails.application.routes.draw do
     resources :todos, only: [:destroy, :create]
     resources :items, only: [:destroy, :create]
     resources :posts, only: [:destroy, :create]
+
+    resources :comments, only: [:create, :destroy]
   end
 end

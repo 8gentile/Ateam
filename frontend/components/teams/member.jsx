@@ -27,7 +27,6 @@ export default class Member extends React.Component {
 
   handleRemove(e){
     e.preventDefault(e);
-    debugger
     this.props.removeMember(this.props.member.id, this.props.teamId)
       .then(action => this.props.history.push(`/teams/${this.props.teamId}/edit`));
   }

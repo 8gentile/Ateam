@@ -1,7 +1,7 @@
-comment_ids = []
-@post.comments.each do |comment|
-  comment_ids << comment.id
-end
+# comment_ids = []
+# @post.comments.each do |comment|
+#   comment_ids << comment.id
+# end
 
 json.extract! @post, :id, :title, :body, :user_id, :team_id
 

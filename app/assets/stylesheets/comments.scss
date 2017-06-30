@@ -19,3 +19,37 @@
     font-weight: 700;
   }
 }
+
+.new-comment-panel {
+  display: flex;
+}
+
+.quill.comment-body {
+  background: white;
+  width: 31rem;
+}
+
+.new-comment-button {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+
+  button {
+    font-family: 'Martel Sans', sans-serif;
+    color: white;
+    background: #3cb371;
+    border-bottom: 2px solid #339860;
+    border-radius: 0.4rem;
+    padding: 0.3rem 1rem;
+    margin-top: 0.8rem;
+  }
+
+  button:active {
+    background: #339860;
+  }
+}
+
+.remove-comment {
+  margin-left: 2rem;
+  margin-top: 1rem;
+}

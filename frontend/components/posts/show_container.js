@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PostShow from './show';
-import { fetchPost } from '../../actions/post_actions';
+import { fetchPost, newPostComment, destroyPostComment } from '../../actions/post_actions';
 import { fetchUsers } from '../../actions/user_actions';
 import allUsers from '../../reducers/selectors'
 
@@ -17,7 +17,9 @@ const mapStateToProps = ({ posts, teams, users, session }, { match }) => ({
 const mapDispatchToProps = dispatch => ({
   fetchPost: (teamId, postId) => dispatch(fetchPost(teamId, postId)),
   fetchUsers: userId => dispatch(fetchUsers(userId)),
-  });
+  createPostComment: comment => dispatch(newPostComment(comment)),
+  destroyComment: commentId => dispatch(destroyPostComment(commentId))
+});
 
 export default withRouter(connect(
   mapStateToProps,

@@ -3,13 +3,12 @@ import { withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
 import ReactQuill from 'react-quill';
 
-class NewComment extends React.Component {
+export default class NewComment extends React.Component {
   constructor(props){
     super(props);
-
     this.state = {
-      user_id: this.props.userId,
-      [this.props.parentId]: this.props.parentId,
+      userId: this.props.userId,
+      parentId: this.props.parentId,
       body: "",
     }
 
@@ -19,9 +18,9 @@ class NewComment extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    const post = merge({}, this.state);
-    this.props.processForm(post)
-      .then( this.props.fetchParent(this.props.parentId));
+    const comment = merge({}, this.state);
+    this.props.processForm(comment)
+      .then( this.setState({body: ""}));
   }
 
   handleQuill(value) {
@@ -36,7 +35,7 @@ class NewComment extends React.Component {
       toolbar: [
         ['bold', 'italic', 'underline','strike', 'blockquote'],
         [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-        [{ 'align': [] }], 
+        [{ 'align': [] }],
         ['clean']
       ],
     }
@@ -45,17 +44,18 @@ class NewComment extends React.Component {
 
     return(
       <section className="new-comment-panel">
-        <div className="new-comment-header">
+        <div className="new-comment-avatar">
+          <img src={users[0][this.props.userId].avatar_url} className="avatar-medium"/>
         </div>
         <section>
           <div>
             <ReactQuill
-              className="post-body"
+              className="comment-body"
               value={this.state.body}
               theme="snow"
               modules={modules}
               onChange={this.handleQuill}
-              placeholder="Body" />
+              placeholder="What are your thoughts?" />
             <span className="new-comment-button">
               <button onClick={this.handleSubmit}>Add this comment</button>
             </span>
@@ -64,7 +64,4 @@ class NewComment extends React.Component {
       </section>
     );
   }
-
-
-
 }
