@@ -40,6 +40,13 @@ class PostShow extends React.Component {
       ],
     }
 
+    const editButton = () => {
+      if (post.user_id === this.props.userId) {
+        return <Link to={`/teams/${team.id}/posts/${post.id}/edit`}>Edit</Link>;
+      } else {
+        return null;
+      }
+    }
     //export this
     const comments = post.comments.map( comment => {
       const removeComment = () => {
@@ -73,7 +80,7 @@ class PostShow extends React.Component {
         <section className="post-show">
           <img src={post.author.avatar_url} className="avatar-big"/>
           <span>Posted by {post.author.fname} {post.author.lname}</span>
-          <Link to={`/teams/${team.id}/posts/${post.id}/edit`}>Edit</Link>
+          { editButton() }
           <div>
             <h1>{post.title}</h1>
             <div dangerouslySetInnerHTML={{__html: post.body}}></div>
