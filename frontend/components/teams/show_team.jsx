@@ -50,7 +50,7 @@ class TeamShow extends React.Component {
                 <p>Post announcements, pitch ideas, progress updates etc.</p>
               </li>
             </Link>
-            <Link to={`/teams/${this.props.team.id}/schedule`}>
+            <Link to={`/teams/${this.props.team.id}/events`}>
               <li>
                 <h2>Schedule</h2>
                 <i className="fa fa-calendar fa-5x" aria-hidden="true"></i>

@@ -35,7 +35,7 @@
 
 .team-index {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   width: 90%;
   height: 70vh
@@ -48,7 +48,7 @@
   border-radius: 8px 8px 8px 8px;
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin: 1rem;
   box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.1);
 }
 
@@ -67,7 +67,7 @@
   border-radius: 8px 8px 8px 8px;
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin: 1rem;
   box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.1);
 }
 
@@ -101,7 +101,7 @@
   border-radius: 8px 8px 8px 8px;
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin: 1rem;
   box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.1);
 }
 

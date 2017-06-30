@@ -18,7 +18,7 @@ const TeamNav = (props) => {
                <i className="fa fa-thumb-tack fa-2x" aria-hidden="true"></i>
            </li>
            </Link>
-          <Link to={`/teams/${props.team.id}/schedule`}>
+          <Link to={`/teams/${props.team.id}/events`}>
             <li>
               <h3>Schedule</h3>
               <i className="fa fa-calendar fa-2x" aria-hidden="true"></i>

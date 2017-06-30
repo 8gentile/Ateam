@@ -15,6 +15,7 @@ import PostIndex from './posts/index_container';
 import PostNew  from './posts/new_container';
 import PostShow from './posts/show_container';
 import PostEdit from './posts/edit_container';
+import EventIndex from './events/index_container';
 
 
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
           <ProtectedRoute exact={true} path="/teams/:teamId/posts/new" component={ PostNew } />
           <ProtectedRoute exact={true} path="/teams/:teamId/posts/:postId" component={ PostShow } />
           <ProtectedRoute exact={true} path="/teams/:teamId/posts/:postId/edit" component={ PostEdit } />
+          <ProtectedRoute exact={true} path="/teams/:teamId/events" component={ EventIndex } />
         </section>
     </div>
   );

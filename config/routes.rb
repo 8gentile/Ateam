@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         resources :items, only: [:update]
       end
       resources :posts, only: [:index, :new, :update, :show]
-      #schedule
+      resources :events, only: [:index, :new, :update, :show]
       #docs
       #campfire
     end
