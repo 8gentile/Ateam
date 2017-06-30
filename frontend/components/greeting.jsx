@@ -41,6 +41,7 @@ export default class Greeting extends React.Component {
               <img src={this.props.currentUser.avatar_url} className="user-avatar"/>
             </button>
             {this.state.dropdown ? <UserDropDown /> : <div className="hidden-dd"></div> }
+            {this.state.dropdown ? <div onClick={this.handleClick} className="close-dropdown"></div> : <div className="hidden-dd"></div> }
           </nav>
         );
       } else {
