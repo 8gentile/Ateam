@@ -38,7 +38,7 @@ const App = () => {
           <ProtectedRoute exact={true} path="/teams/:teamId/todos/:todoId" component={ TodoShow } />
           <ProtectedRoute exact={true} path="/teams/:teamId/posts" component={ PostIndex } />
           <ProtectedRoute exact={true} path="/teams/:teamId/posts/new" component={ PostNew } />
-          <ProtectedRoute path="/posts/:postId" component={ PostShow } />
+          <ProtectedRoute exact={true} path="/teams/:teamId/posts/:postId" component={ PostShow } />
           <ProtectedRoute exact={true} path="/teams/:teamId/posts/:postId/edit" component={ PostEdit } />
         </section>
     </div>

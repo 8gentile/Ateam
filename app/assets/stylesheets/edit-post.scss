@@ -15,8 +15,6 @@
 
   div:last-child {
     position: relative;
-    display: flex;
-    flex-direction: column;
     padding: 5rem 6rem 6rem;
     background: #fff;
     width: 60%;
@@ -28,7 +26,7 @@
 
     i:before {
       position: absolute;
-      bottom: 29rem;
+      bottom: 23rem;
       right: 2rem;
       cursor: pointer;
     }

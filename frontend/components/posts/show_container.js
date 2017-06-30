@@ -8,13 +8,14 @@ import allUsers from '../../reducers/selectors'
 const mapStateToProps = ({ posts, teams, users, session }, { match }) => ({
   userId: session.currentUser.id,
   postId: match.params.postId,
+  teamId: match.params.teamId,
   post: posts[match.params.postId],
   users: allUsers(users),
-  team: teams.entities[posts[match.params.postId].team_id],
+  team: teams.entities[match.params.teamId],
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPost: postId => dispatch(fetchPost(postId)),
+  fetchPost: (teamId, postId) => dispatch(fetchPost(teamId, postId)),
   fetchUsers: userId => dispatch(fetchUsers(userId)),
   });
 

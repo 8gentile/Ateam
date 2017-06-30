@@ -9,8 +9,6 @@
   }
 
   div:last-child {
-    display: flex;
-    flex-direction: column;
     padding: 5rem 6rem 6rem;
     background: #fff;
     width: 60%;
@@ -31,10 +29,6 @@
     input:focus {
       border-bottom: 1px solid #283c4b;
     }
-    textarea {
-      margin: 1rem;
-      width: 90%;
-    }
   }
 
   section {
@@ -52,11 +46,22 @@
     color: #fff;
     width: inherit;
     border-radius: 0.3rem;
-    padding: 0.3rem;
+    padding: 0.3rem 4rem;
     font-weight: 700;
+    margin-top: 1rem;
   }
 
   button:active {
     background-color: #175aab;
   }
+}
+
+.new-post-header {
+  display: flex;
+  justify-content: center;
+}
+
+.new-post-button {
+  display: flex;
+  justify-content: center;
 }

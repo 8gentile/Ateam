@@ -13,19 +13,6 @@ class TeamEdit extends React.Component {
     this.props.fetchUsers(this.props.currentUser.id);
   }
 
-  // componentWillReceiveProps(nextProps){
-  //   if (!this.props.team) {
-  //     return null;
-  //   }
-  //   debugger
-  //   if (this.props.team.member_ids.length === nextProps.team.member_ids.length) {
-  //     return this.props.fetchTeams(this.props.currentUser.id);
-  //     // this.props.fetchTeam(this.props.currentUser.id);
-  //   } else {
-  //     return null;
-  //   }
-  // }
-
   render(){
     const { team } = this.props;
     const { users } = this.props.users;

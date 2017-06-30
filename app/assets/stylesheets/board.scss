@@ -2,7 +2,7 @@
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	height: 100vh;
+	height: 90%;
 
 }
 
@@ -30,7 +30,6 @@
 	padding: 3rem 1rem 1rem;
 	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
   border-radius: 0.6rem;
-  margin-top: 2rem;
 
 	h1 {
 		font-size: 28px;
@@ -41,7 +40,7 @@
 
 	ul {
 		display: flex;
-		flex-direction: column;
+		flex-direction: column-reverse;
 		width: 90%;
 		margin-top: 2rem;
 	}
@@ -51,7 +50,6 @@
 	display: flex;
 	border-top: 1px solid #f2f2f2;
 	padding: 1rem;
-	
 	a {
 		display: flex;
 		align-items: center;

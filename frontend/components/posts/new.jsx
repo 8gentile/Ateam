@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
+import ReactQuill from 'react-quill';
 
 class PostNew extends React.Component {
 	constructor(props) {
@@ -14,6 +15,7 @@ class PostNew extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleQuill = this.handleQuill.bind(this);
 	}
 
 
@@ -23,42 +25,67 @@ class PostNew extends React.Component {
     e.preventDefault();
     const post = merge({}, this.state);
     this.props.processForm(post)
-      .then( action => this.props.history.push(`/posts/${action.post.id}`));
+      .then( action => this.props.history.push(`/teams/${this.props.teamId}/posts/${action.post.id}`));
   }
 
   handleChange(field){
-    return e => {
-      this.setState({ [field]: e.currentTarget.value });
-    };
+    return e => (
+      this.setState({ [field]: e.currentTarget.value })
+    );
+  }
+
+  handleQuill(value) {
+    this.setState({ body: value })
   }
 
 	render() {
     const { team } = this.props;
     if (!team) return null;
+
+    const  modules = {
+      toolbar: [
+        ['bold', 'italic', 'underline','strike', 'blockquote'],
+        [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+        [{ 'align': [] }], 
+        ['clean']
+      ],
+    }
+
+
+
 		return(
 			<section className="new-post-panel">
-        <div>
+        <div className="new-post-header">
           <span>←</span>
           <Link to={`/teams/${team.id}/posts`} className="nav-back"> Back to {team.name}'s Message Board</Link>
         </div>
         <section>
-
   				<div>
             <input
                   onChange={this.handleChange("title")}
                   value={this.state.title}
                   placeholder="Title"/>
-            <textarea rows="6" cols="50"
-                  onChange={this.handleChange("body")}
-                  value={this.state.body}
-                  placeholder="Body">
-            </textarea>
-            <button onClick={this.handleSubmit}>Post this message</button>
-  				</div>
+            <ReactQuill
+              className="post-body"
+              value={this.state.body}
+              theme="snow"
+              modules={modules}
+              onChange={this.handleQuill}
+              placeholder="Body" />
+            <span className="new-post-button">
+              <button onClick={this.handleSubmit}>Post this message</button>
+            </span>
+          </div>
         </section>
-			</section>
-		);
-	}
+      </section>
+    );
+  }
 }
 
+// <div className="post-body-area"/>
+
 export default withRouter(PostNew);
+            // <textarea rows="6" cols="50"
+            //       onChange={this.handleChange("body")}
+            //       value={this.state.body}
+            //       placeholder="Body">

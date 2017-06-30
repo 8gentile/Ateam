@@ -18,8 +18,23 @@
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
-  width: 20%;
+  width: 50%;
   font-family: 'Martel Sans', sans-serif;
+
+  li:first-child {
+    color: #fbf8f4;
+    background: #197944;
+  }
+
+  li:first-child:active {
+    background: #856ec6;
+    color: #fff;
+  }
+
+  li:active {
+    background: red;
+    color: #fff;
+  }
 }
 
 .team-nav li {

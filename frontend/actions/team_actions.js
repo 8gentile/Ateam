@@ -2,6 +2,7 @@ import * as APIUtil from '../utils/team_api_utils';
 
 export const RECEIVE_TEAMS = "RECEIVE_TEAMS";
 export const RECEIVE_TEAM = "RECEIVE_TEAM";
+export const REMOVE_TEAM = "REMOVE_TEAM";
 
 export const receiveTeams = (teams) => ({
   type: RECEIVE_TEAMS,
@@ -10,6 +11,11 @@ export const receiveTeams = (teams) => ({
 
 export const receiveTeam = ( team ) => ({
   type: RECEIVE_TEAM,
+  team
+});
+
+export const removeTeam = team => ({
+  type: REMOVE_TEAM,
   team
 });
 
@@ -26,4 +32,9 @@ export const fetchTeams = user_id => dispatch => (
 export const createTeam = (team) => dispatch (
   APIUtil.createTeam(team)
     .then( team => dispatch(receiveTeam(team)))
+);
+
+export const destroyTeam = teamId => dispatch (
+  APIUtil.destroyTeam(teamId)
+    .then( team => dispatch(removeTeam(team)))
 );

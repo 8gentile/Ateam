@@ -6,9 +6,9 @@ import { updatePost, destroyPost, fetchPost } from '../../actions/post_actions';
 const mapStateToProps = ({ teams, posts, session }, { match }) => ({
   userId: session.currentUser.id,
   teamId: match.params.teamId,
+  postId: match.params.postId,
   team: teams.entities[match.params.teamId],
   post: posts[match.params.postId],
-  postId: match.params.postId,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -15,7 +15,7 @@
   border-radius: 0.6rem;
   margin-top: 3rem;
   position: relative;
-  height: 30rem;
+  min-height: 20rem;
 
   a {
     font-family: 'Martel Sans', sans-serif;
@@ -33,7 +33,7 @@
 
   img {
     position: absolute;
-    bottom: 31rem;
+    bottom: 21rem;
   }
 
   span {

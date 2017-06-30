@@ -9,8 +9,8 @@ export const fetchPosts = teamId =>  dispatch => {
     .then( posts => dispatch(receivePosts(posts)));
 };
 
-export const fetchPost = postId =>  dispatch => {
-  return APIUtil.fetchPost(postId)
+export const fetchPost = ( teamId, postId ) =>  dispatch => {
+  return APIUtil.fetchPost( teamId, postId)
     .then( post => dispatch(receivePost(post)));
 };
 

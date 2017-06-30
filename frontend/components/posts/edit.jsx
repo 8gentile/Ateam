@@ -1,17 +1,12 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
+import ReactQuill from 'react-quill';
 
 class PostEdit extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      id: this.props.post.id,
-      title: this.props.post.title,
-      body: this.props.post.body,
-      user_id: this.props.userId,
-      team_id: this.props.teamId,
-    }
+    this.state = {}
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -19,7 +14,15 @@ class PostEdit extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchPost(this.props.postId);
+    this.props.fetchPost(this.props.teamId, this.props.postId)
+      .then(this.setState({
+        id: this.props.postId,
+        title: this.props.post.title,
+        body: this.props.post.body,
+        user_id: this.props.userId,
+        team_id: this.props.teamId,
+      })
+    );
   }
 
 
@@ -27,9 +30,9 @@ class PostEdit extends React.Component {
     e.preventDefault();
     const post = merge({}, this.state);
     this.props.processForm(post)
-      .then( action => this.props.history.push(`/posts/${action.post.id}`));
+      .then( action => this.props.history.push(`/teams/${action.post.team_id}/posts/${action.post.id}`));
   }
-  
+
   handleChange(field){
     return e => {
       this.setState({ [field]: e.currentTarget.value });
@@ -48,12 +51,21 @@ class PostEdit extends React.Component {
     if (!post) return null;
     if (!team) return null;
 
+    const  modules = {
+      toolbar: [
+        ['bold', 'italic', 'underline','strike', 'blockquote'],
+        [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+        [{ 'align': [] }], 
+        ['clean']
+      ],
+    }
+
     return(
       <section className="edit-post-panel">
         <Link to={`/teams/${team.id}`}>{team.name}</Link>
         <div>
           <span>←</span>
-          <Link to={`/posts/${post.id}`} className="nav-back"> Discard my changes</Link>
+          <Link to={`/teams/${team.id}/posts/${post.id}`} className="nav-back"> Discard my changes</Link>
         </div>
         <div>
             <i className="fa fa-trash-o fa-2x" aria-hidden="true" onClick={this.handleRemove}></i>
@@ -61,11 +73,13 @@ class PostEdit extends React.Component {
                   onChange={this.handleChange("title")}
                   value={this.state.title}
                   placeholder="Title"/>
-            <textarea rows="6" cols="50"
-                  onChange={this.handleChange("body")}
-                  value={this.state.body}
-                  placeholder="Body">
-            </textarea>
+            <ReactQuill
+              className="post-body"
+              value={this.state.body}
+              theme="snow"
+              modules={modules}
+              onChange={this.handleQuill}
+              placeholder="Body" />
             <button onClick={this.handleSubmit} className="update-post-button">Save changes</button>
         </div>
       </section>

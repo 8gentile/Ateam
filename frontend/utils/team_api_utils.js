@@ -20,3 +20,10 @@ export const createTeam = ({ name, manager_id }) => {
     data: {team: { name, manager_id }}
   });
 };
+
+export const destroyTeam = ( teamId ) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/teams/${teamId}`
+  });
+};

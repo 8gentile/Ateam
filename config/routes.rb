@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :create, :update, :show, :destroy] do
       resources :teams, only: [:index]
     end
-    resources :teams, only: [:create, :show, :update, :edit] do
-      resources :todos, except: [:destroy, :create] do 
+    resources :teams, only: [:create, :show, :update, :edit, :destroy] do
+      resources :todos, except: [:destroy, :create] do
         resources :items, only: [:update]
       end
-      resources :posts, only: [:index, :new, :update]
+      resources :posts, only: [:index, :new, :update, :show]
       #schedule
       #docs
       #campfire
@@ -20,6 +20,6 @@ Rails.application.routes.draw do
     resources :memberships, only: [:create]
     resources :todos, only: [:destroy, :create]
     resources :items, only: [:destroy, :create]
-    resources :posts, only: [:destroy, :create, :show]
+    resources :posts, only: [:destroy, :create]
   end
 end

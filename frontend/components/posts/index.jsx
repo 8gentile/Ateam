@@ -22,7 +22,7 @@ class PostIndex extends React.Component {
 		const postItems = posts.map( post => {
 			return (
 				<li className="post-item" key={post.id}>
-					<Link to={`/posts/${post.id}`}>
+					<Link to={`/teams/${team.id}/posts/${post.id}`}>
 						<img src={post.author.avatar_url} className="avatar-medium"/>
 						<div>
 							<section>
