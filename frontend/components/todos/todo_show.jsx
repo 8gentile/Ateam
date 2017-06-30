@@ -116,7 +116,7 @@ class TodoShow extends React.Component {
             <i className="fa fa-trash-o" aria-hidden="true" 
               onClick={this.removeList(todo.id)}></i>
           </h1>
-
+          <p>{this.props.todo.body}</p>
           <ul className="icons-items">{ pendingItems }</ul>
           <div onClick={this.handleClick}>
             Add a to-do

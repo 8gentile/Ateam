@@ -82,6 +82,13 @@
 
   button {
     width: 9.5rem;
+    background-color: #1b6ac9;
+    border-color: #1b6ac9;
+    border-bottom-color: #175aab;
+  }
+
+  button:active {
+    background: #175aab;
   }
 }
 
