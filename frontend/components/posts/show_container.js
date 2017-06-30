@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import PostShow from './show';
 import { fetchPost, newPostComment, destroyPostComment } from '../../actions/post_actions';
 import { fetchUsers } from '../../actions/user_actions';
-import allUsers from '../../reducers/selectors'
+import allUsers from '../../reducers/selectors';
 
 const mapStateToProps = ({ posts, teams, users, session }, { match }) => ({
   userId: session.currentUser.id,

@@ -53,3 +53,8 @@
   margin-left: 2rem;
   margin-top: 1rem;
 }
+
+.fa-trash-o:before {
+    content: "";
+    cursor: pointer;
+}

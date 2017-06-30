@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import TeamNav from '../teams/team_nav';
 import ItemForm from './item_form_container';
+import NewComment from '../comments/new_comment';
 import merge from 'lodash/merge';
 
 class TodoShow extends React.Component {
@@ -15,10 +16,12 @@ class TodoShow extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.removeItem = this.removeItem.bind(this);
     this.removeList = this.removeList.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
   }
 
   componentDidMount(){
-    this.props.requestTodo(this.props.todoId, this.props.teamId);
+    this.props.fetchUsers(this.props.currentUser.id)
+      .then(this.props.requestTodo(this.props.todoId, this.props.teamId));
   }
 
   componentWillReceiveProps(nextProps){
@@ -38,6 +41,13 @@ class TodoShow extends React.Component {
     } else {
       this.setState({showForm: true});
     }
+  }
+
+  handleRemove(commentId){
+    return (e) => {
+      e.preventDefault();
+      this.props.destroyComment(commentId);
+    };
   }
 
   toggleDone(item) {
@@ -71,8 +81,10 @@ class TodoShow extends React.Component {
   render(){
     const { todo } = this.props;
     const { team } = this.props;
+    const { users } = this.props;
     if (!todo) return null;
     if (!team) return null;
+    if (!users.length) return null;
 
     const pendingItems = todo.items.map( item => {
       if (!item.done) {
@@ -105,7 +117,30 @@ class TodoShow extends React.Component {
         );
       }
     });
-
+    const comments = todo.comments.map( comment => {
+      const removeComment = () => {
+        if (comment.user_id === this.props.userId) {
+          return(
+            <span className="remove-comment">
+              <i className="fa fa-trash-o" aria-hidden="true"
+                onClick={this.handleRemove(comment.id)}></i>
+            </span>
+          );
+        } else {
+          return null;
+        }
+      }
+      return(
+        <li className="comment-item" key={comment.id}>
+            <img src={users[0][comment.user_id].avatar_url} className="avatar-medium"/>
+            <section>
+              <span><strong>{users[0][comment.user_id].fname} {users[0][comment.user_id].lname}</strong>, {users[0][comment.user_id].email}</span>
+              <div dangerouslySetInnerHTML={{__html: comment.body}}></div>
+            </section>
+            {removeComment()}
+        </li>
+      );
+    });
     return(
       <section className="todos-index-panel">
         <TeamNav
@@ -125,7 +160,13 @@ class TodoShow extends React.Component {
           <ul className="icons-items">{ finishedItems }</ul>
         </section>
 
-        <section className="todos-index">
+        <section className="comments">
+          <ul>{ comments }</ul>
+          <NewComment
+            processForm={this.props.createComment}
+            userId={this.props.userId}
+            parentId={this.props.todoId}
+            users={this.props.users} />
         </section>
       </section>
     );
@@ -133,13 +174,3 @@ class TodoShow extends React.Component {
 }
 
 export default withRouter(TodoShow);
-
-// const todoLists = todos.map( list => {
-//   return (
-//     <li key={list.id}>
-//       <Link to={`/todos/${list.id}`}>{ list.title }</Link>
-//     </li>
-//   );
-// });
-
-// <ul>{todoLists}</ul>

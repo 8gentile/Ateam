@@ -6,3 +6,7 @@ json.items do
   end
 end
 
+json.comments do
+  json.array! @todo.comments
+end
+

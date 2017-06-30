@@ -4,6 +4,8 @@ export const RECEIVE_TODO = "RECEIVE_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
 export const TODO_ERROR = "TODO_ERROR";
 
+import { createTodoComment, destroyComment } from '../utils/comment_api_utils';
+
 export function requestTodos(team_id) {
   return (dispatch) => {
     return APIUtil.fetchTodos(team_id)
@@ -36,7 +38,17 @@ export function destroyTodo(todoId) {
   return (dispatch) => {
     return APIUtil.destroyTodo(todoId).then(todo => dispatch(removeTodo(todo)));
   };
-}
+};
+
+export const newTodoComment = comment => dispatch => {
+  return createTodoComment(comment)
+    .then(todo => dispatch(receiveTodo(todo)));
+};
+
+export const destroyTodoComment = commentId => {
+  return destroyComment(commentId)
+    .then( todo => dispatch(receiveTodo(todo)));
+};
 
 export const receiveTodos = todos => ({
   type: RECEIVE_TODOS,

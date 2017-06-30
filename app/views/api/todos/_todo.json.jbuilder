@@ -5,4 +5,7 @@ json.set! todo.id do
       json.partial! 'api/todos/item', item: item
     end
   end
+  json.comments do
+    json.array! todo.comments
+  end
 end

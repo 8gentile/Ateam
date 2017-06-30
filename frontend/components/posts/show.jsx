@@ -19,7 +19,6 @@ class PostShow extends React.Component {
   handleClick(commentId){
     return (e) => {
       e.preventDefault();
-      if (true) {}
       this.props.destroyComment(commentId);
     };
   }
@@ -52,7 +51,7 @@ class PostShow extends React.Component {
             </span>
           );
         } else {
-          return (<p></p>);
+          return null;
         }
       }
       return(
@@ -85,7 +84,6 @@ class PostShow extends React.Component {
           <ul>{ comments }</ul>
           <NewComment
             processForm={this.props.createPostComment}
-            fetchParent={this.props.fetchPost}
             userId={this.props.userId}
             parentId={this.props.postId}
             users={this.props.users} />
