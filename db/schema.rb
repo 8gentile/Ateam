@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630062835) do
+ActiveRecord::Schema.define(version: 20170702184236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendances", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "event_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "attendances", ["event_id"], name: "index_attendances_on_event_id", using: :btree
+  add_index "attendances", ["user_id"], name: "index_attendances_on_user_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.string   "body",       null: false
@@ -34,10 +44,11 @@ ActiveRecord::Schema.define(version: 20170630062835) do
   create_table "events", force: :cascade do |t|
     t.string   "title",      null: false
     t.text     "notes"
-    t.date     "date",       null: false
     t.integer  "team_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
   end
 
   add_index "events", ["team_id"], name: "index_events_on_team_id", using: :btree

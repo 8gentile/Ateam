@@ -30,6 +30,7 @@ class EventIndex extends React.Component {
     if (!team) return null;
 
     const eventItems = events.map( event => {
+      debugger
       return (
         <li className="event-item" key={event.id}>
           <Link to={`/teams/${team.id}/events/${event.id}`}>
@@ -46,22 +47,23 @@ class EventIndex extends React.Component {
     });
 
     return(
-      <section className="schedule-panel">
-        <TeamNav
-          team={this.props.team}
-        />
-        <section className="event-index">
-          <h1>Schedule</h1>
-          <Link to={`/teams/${this.props.teamId}/events/new`}>
-            <span className="Event-message-button">Add another event</span>
-          </Link>
-          <ul>{ eventItems }</ul>
-        </section>
-      </section>
+      <h1>Coming Soon!</h1>
     );
   }
 }
-
+      // <section className="schedule-panel">
+        // <TeamNav
+//           team={this.props.team}
+//         />
+//         <section className="event-index">
+//           <h1>Schedule</h1>
+//           <Link to={`/teams/${this.props.teamId}/events/new`}>
+//             <span className="Event-message-button">Add another event</span>
+//           </Link>
+//           <ul>{ eventItems }</ul>
+//         </section>
+//       </section>
+//
 // <input
 //             type="date"
 //             selected={this.state.startDate}
