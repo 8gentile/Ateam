@@ -12,7 +12,7 @@ const mapStateToProps = ({ teams, posts, session }, { match }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPost: postId => dispatch(fetchPost(postId)),
+  fetchPost: (teamId, postId) => dispatch(fetchPost(teamId, postId)),
   destroyPost: postId => dispatch(destroyPost(postId)),
   processForm: post => dispatch(updatePost(post)),
 });

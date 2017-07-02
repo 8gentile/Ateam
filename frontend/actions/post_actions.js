@@ -10,7 +10,7 @@ export const fetchPosts = teamId =>  dispatch => {
 };
 
 export const fetchPost = ( teamId, postId ) =>  dispatch => {
-  return APIUtil.fetchPost( teamId, postId)
+  return APIUtil.fetchPost(teamId, postId)
     .then( post => dispatch(receivePost(post)));
 };
 

@@ -13,15 +13,13 @@ const todosReducer = (state = {}, action) => {
       return merge({}, action.todos);
     case RECEIVE_TODO:
       newState = merge({}, state);
-      delete newState[action.todo.id]
+      delete newState[action.todo.id];
       const newTodo = {[action.todo.id]: action.todo};
       return merge(newState, newTodo);
     case REMOVE_TODO:
       newState = merge({}, state);
       delete newState[action.todo.id];
       return newState;
-    // case TODO_ERROR:
-    //   alert(action.error);
     default:
       return state;
   }

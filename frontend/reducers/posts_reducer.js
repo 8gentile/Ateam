@@ -13,7 +13,7 @@ const postsReducer = (state = {}, action) => {
       return merge({}, action.posts);
     case RECEIVE_POST:
       newState = merge({}, state);
-      delete newState[action.post.id]
+      delete newState[action.post.id];
       const newPost = {[action.post.id]: action.post};
       return merge(newState, newPost);
     case REMOVE_POST:

@@ -11,10 +11,13 @@ class PostEdit extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
+    this.handleQuill = this.handleQuill.bind(this);
   }
 
   componentDidMount(){
+
     this.props.fetchPost(this.props.teamId, this.props.postId)
+      .then(null)
       .then(this.setState({
         id: this.props.postId,
         title: this.props.post.title,
@@ -45,9 +48,14 @@ class PostEdit extends React.Component {
       .then(this.props.history.push(`/teams/${this.props.teamId}/posts`));
   }
 
+  handleQuill(value) {
+    this.setState({ body: value })
+  }
+
   render() {
     const { team } = this.props;
     const { post } = this.props;
+    if (!this.state) return null;
     if (!post) return null;
     if (!team) return null;
 
@@ -55,7 +63,7 @@ class PostEdit extends React.Component {
       toolbar: [
         ['bold', 'italic', 'underline','strike', 'blockquote'],
         [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-        [{ 'align': [] }], 
+        [{ 'align': [] }],
         ['clean']
       ],
     }
