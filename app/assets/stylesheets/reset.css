@@ -15,6 +15,7 @@ span, article, footer, time, small {
   box-sizing: inherit;
   background: transparent;
   font-family: 'Martel Sans', sans-serif;
+  cursor: inherit;
 }
 
 ul {
@@ -42,6 +43,9 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+a {
+  cursor: pointer;
+}
 
 
 /* Clearfix */

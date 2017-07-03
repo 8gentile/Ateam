@@ -11,7 +11,7 @@ const mapStateToProps = ({ session }) => {
 const mapDispatchToProps = ( dispatch ) => {
   return {
     guestLogIn: () => dispatch(login({
-      email: "sedulity@metalfingers.com",
+      email: "sedulity@appacademy.io",
       password: "starward",
     })),
     logout: () => dispatch(logout()),

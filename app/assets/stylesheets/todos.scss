@@ -142,4 +142,9 @@
     border-radius: 4px;
     padding: 1rem;
   }
+
+  a > li:hover {
+    background: #ddf7e4;
+    box-shadow: inset 0px 0px 16px 4px rgba(0,0,0,0.1);
+  }
 }

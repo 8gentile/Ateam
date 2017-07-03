@@ -25,7 +25,8 @@ class PostNew extends React.Component {
     e.preventDefault();
     const post = merge({}, this.state);
     this.props.processForm(post)
-      .then( action => this.props.history.push(`/teams/${this.props.teamId}/posts/${action.post.id}`));
+      .then( action => this.props.history
+        .push(`/teams/${this.props.teamId}/posts/${action.post.id}`));
   }
 
   handleChange(field){
@@ -57,14 +58,15 @@ class PostNew extends React.Component {
 			<section className="new-post-panel">
         <div className="new-post-header">
           <span>←</span>
-          <Link to={`/teams/${team.id}/posts`} className="nav-back"> Back to {team.name}'s Message Board</Link>
+          <Link to={`/teams/${team.id}/posts`} 
+            className="nav-back"> Back to {team.name}'s Message Board</Link>
         </div>
         <section>
   				<div>
             <input
-                  onChange={this.handleChange("title")}
-                  value={this.state.title}
-                  placeholder="Title"/>
+              onChange={this.handleChange("title")}
+              value={this.state.title}
+              placeholder="Title"/>
             <ReactQuill
               className="post-body"
               value={this.state.body}
@@ -82,10 +84,4 @@ class PostNew extends React.Component {
   }
 }
 
-// <div className="post-body-area"/>
-
 export default withRouter(PostNew);
-            // <textarea rows="6" cols="50"
-            //       onChange={this.handleChange("body")}
-            //       value={this.state.body}
-            //       placeholder="Body">
