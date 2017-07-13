@@ -38,7 +38,9 @@ class UserEdit extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const formData = new FormData();
-
+    if (this.state.id === 4){
+      return alert("You cannot change Guest Account User Settings");
+    }
     formData.append("user[email]", this.state.email);
     formData.append("user[fname]", this.state.fname);
     formData.append("user[lname]", this.state.lname);

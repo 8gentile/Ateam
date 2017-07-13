@@ -26,7 +26,7 @@ User.create(
 User.create(
   fname: "Termina",
   lname: "McGillicutty",
-  email: "sedulity@metalfingers.com",
+  email: "sedulity@appacademy.io",
   password: "starward"
 )
 
