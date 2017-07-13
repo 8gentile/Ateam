@@ -28,21 +28,35 @@ const App = () => {
           <Greeting />
         </div>
       </header>
-        <section className="bodySection">
-          <AuthRoute exact={true} path="/login" component={ SessionForm } />
-          <AuthRoute exact={true} path="/signup" component={ SignupForm } />
-          <ProtectedRoute path="/users/:userId/edit" component={ UserEdit } />
-          <ProtectedRoute exact={true} path="/" component={ TeamsIndex } />
-          <ProtectedRoute exact={true} path="/teams/:teamId" component={ TeamShow } />
-          <ProtectedRoute path="/teams/:teamId/edit" component={ TeamEdit } />
-          <ProtectedRoute exact={true} path="/teams/:teamId/todos" component={ TodosIndex } />
-          <ProtectedRoute exact={true} path="/teams/:teamId/todos/:todoId" component={ TodoShow } />
-          <ProtectedRoute exact={true} path="/teams/:teamId/posts" component={ PostIndex } />
-          <ProtectedRoute exact={true} path="/teams/:teamId/posts/new" component={ PostNew } />
-          <ProtectedRoute exact={true} path="/teams/:teamId/posts/:postId" component={ PostShow } />
-          <ProtectedRoute exact={true} path="/teams/:teamId/posts/:postId/edit" component={ PostEdit } />
-          <ProtectedRoute exact={true} path="/teams/:teamId/events" component={ EventIndex } />
-        </section>
+      <section className="bodySection">
+        <AuthRoute exact={true} path="/login" component={ SessionForm } />
+        <AuthRoute exact={true} path="/signup" component={ SignupForm } />
+        <ProtectedRoute path="/users/:userId/edit" component={ UserEdit } />
+        <ProtectedRoute exact={true} path="/" component={ TeamsIndex } />
+        <ProtectedRoute exact={true} path="/teams/:teamId" component={ TeamShow } />
+        <ProtectedRoute path="/teams/:teamId/edit" component={ TeamEdit } />
+        <ProtectedRoute exact={true} path="/teams/:teamId/todos" component={ TodosIndex } />
+        <ProtectedRoute exact={true} path="/teams/:teamId/todos/:todoId" component={ TodoShow } />
+        <ProtectedRoute exact={true} path="/teams/:teamId/posts" component={ PostIndex } />
+        <ProtectedRoute exact={true} path="/teams/:teamId/posts/new" component={ PostNew } />
+        <ProtectedRoute exact={true} path="/teams/:teamId/posts/:postId" component={ PostShow } />
+        <ProtectedRoute exact={true} path="/teams/:teamId/posts/:postId/edit" component={ PostEdit } />
+        <ProtectedRoute exact={true} path="/teams/:teamId/events" component={ EventIndex } />
+      </section>
+      <footer id="footer">
+          <ul className="icons">
+            <li><a target="_blank" href="https://www.linkedin.com/in/gentilenicholas"
+              className="icon">
+              <i className="fa fa-linkedin fa-3x" aria-hidden="true"></i>
+            </a></li>
+            <li><a target="_blank" href="https://github.com/8gentile/Ateam" className="icon"><i className="fa fa-github fa-3x" aria-hidden="true"></i></a></li>
+          </ul>
+          <div className="copyright">
+            <ul className="menu">
+              <li>&copy; Äteam. All rights reserved.</li>
+            </ul>
+          </div>
+      </footer>
     </div>
   );
 };

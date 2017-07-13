@@ -1,0 +1,25 @@
+footer#footer {
+  display: flex;
+  background: #F5EFE6;
+  justify-content: center;
+  padding-bottom: 1rem;
+  a.icon:before {
+      font-family: FontAwesome;
+      content: "";
+  }
+  div {
+    display: flex;
+    align-items: center;
+  }
+  ul {
+    display: flex;
+    margin: 2rem;
+
+    li {
+      margin: 1rem;
+      font-family: 'Martel Sans', sans-serif;
+      font-weight: 700;
+    }
+  }
+}
+
