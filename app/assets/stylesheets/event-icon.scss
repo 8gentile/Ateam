@@ -1,0 +1,28 @@
+.event-icon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #197944;
+  background: #F5EFE6; // month color
+  width: 5rem;
+  border-radius: 0.32rem;
+}
+.icon-dow {
+  background: #197944;
+  width: 100%;
+  text-align: center;
+  font-size: 1.06rem;
+
+  span {
+    color: #F5EFE6; // month color
+  }
+}
+.icon-date {
+  font-size: 40px;
+  line-height: 55px;
+  padding: 0;
+  span {
+    color: #283c46;
+  }
+}

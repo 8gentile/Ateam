@@ -1,0 +1,16 @@
+.event-item {
+  section {
+    border: 1px solid gold;
+    display: flex;
+    padding: 1rem;
+  }
+  div.event-info {
+    margin-left: 1rem;
+    h1 {
+      font: 'Martel Sans', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #283c46;
+    }
+  }
+}

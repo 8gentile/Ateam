@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import Moment from 'react-moment';
+import moment from 'moment';
 import TeamNav from '../teams/team_nav';
+import { EventIcon } from './event_icon';
 
 class EventIndex extends React.Component {
   constructor(props){
@@ -30,16 +31,18 @@ class EventIndex extends React.Component {
     if (!team) return null;
 
     const eventItems = events.map( event => {
-      debugger
+      const date = moment(event.start_time, "YYYY-MM-DD HH:mm:ss");
       return (
         <li className="event-item" key={event.id}>
           <Link to={`/teams/${team.id}/events/${event.id}`}>
             <div>
               <section>
-                <h1>{ event.title }</h1>
-                <p>{ event.notes }</p>
+                <EventIcon dow={date.format('dddd')} date={date.format('DD')} />
+                <div className="event-info">
+                  <h1>{ event.title }</h1>
+                  <p>{ event.notes }</p>
+                </div>
               </section>
-              <Moment format="MM/DD/YYYY">{ event.date }</Moment>
             </div>
           </Link>
         </li>
@@ -47,23 +50,23 @@ class EventIndex extends React.Component {
     });
 
     return(
-      <h1>Coming Soon!</h1>
+      <section className="schedule-panel">
+        <TeamNav
+          team={this.props.team}
+        />
+        <section className="event-index">
+          <h1>Schedule</h1>
+          <Link to={`/teams/${this.props.teamId}/events/new`}>
+            <span className="Event-message-button">Add another event</span>
+          </Link>
+          <ul>{ eventItems }</ul>
+        </section>
+      </section>
     );
   }
 }
-      // <section className="schedule-panel">
-        // <TeamNav
-//           team={this.props.team}
-//         />
-//         <section className="event-index">
-//           <h1>Schedule</h1>
-//           <Link to={`/teams/${this.props.teamId}/events/new`}>
-//             <span className="Event-message-button">Add another event</span>
-//           </Link>
-//           <ul>{ eventItems }</ul>
-//         </section>
-//       </section>
-//
+
+// date picker
 // <input
 //             type="date"
 //             selected={this.state.startDate}
