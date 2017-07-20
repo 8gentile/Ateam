@@ -1,3 +1,50 @@
+.schedule-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-event-button {
+    width: 165px;
+    min-height: 40px;
+    background: #3cb371;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0px 2px 0px 1px rgba(51, 152, 96, 1);
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+
+  .add-event-button:active {
+    background: rgba(51, 152, 96, 1);
+  }
+
+.event-index {
+  background: #fff;
+  padding: 2rem 5rem;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    text-align: center;
+    font: 'Martel Sans', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #283c46;
+  }
+}
+
 .event-item {
   section {
     border: 1px solid gold;
@@ -9,7 +56,7 @@
     h1 {
       font: 'Martel Sans', sans-serif;
       font-weight: 700;
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: #283c46;
     }
   }

@@ -18,7 +18,7 @@ const TeamNav = (props) => {
                <i className="fa fa-thumb-tack fa-2x" aria-hidden="true"></i>
            </li>
            </Link>
-          <Link to={`/teams/${props.team.id}/events`}>
+          <Link to={"#"}>
             <li>
               <h3>Schedule</h3>
               <i className="fa fa-calendar fa-2x" aria-hidden="true"></i>
@@ -30,3 +30,6 @@ const TeamNav = (props) => {
 };
 
 export default withRouter(TeamNav);
+
+// Link to Schedule
+// `/teams/${props.team.id}/events`
