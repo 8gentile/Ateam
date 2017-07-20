@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 
 class Nav extends React.Component {
   constructor(props) {
@@ -15,13 +15,15 @@ class Nav extends React.Component {
     const teamIds = Object.keys(this.props.teams);
     const teams = teamIds.map( teamId => {
       return (
-        <li key={teamId}><Link to={`/teams/${teamId}`}>{ this.props.teams[teamId].name }</Link></li>
+        <li key={teamId}>
+          <NavLink to={`/teams/${teamId}`} activeClassName="active">{ this.props.teams[teamId].name }</NavLink>
+        </li>
       );
     });
     return (
       <ul className="team-nav">
         <li>
-          <Link to={`/`} >Teams</Link>
+          <NavLink exact={true } to={`/`} activeClassName="active">Teams</NavLink>
         </li>
         {teams}
       </ul>
