@@ -29,12 +29,12 @@ export const fetchTeams = user_id => dispatch => (
     .then(teams => dispatch(receiveTeams(teams)))
 );
 
-export const createTeam = (team) => dispatch (
+export const createTeam = (team) => dispatch => (
   APIUtil.createTeam(team)
     .then( team => dispatch(receiveTeam(team)))
 );
 
-export const destroyTeam = teamId => dispatch (
+export const destroyTeam = teamId => dispatch => (
   APIUtil.destroyTeam(teamId)
     .then( team => dispatch(removeTeam(team)))
 );
