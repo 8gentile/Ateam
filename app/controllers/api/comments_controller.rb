@@ -17,13 +17,14 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
+    debugger
     if @comment.post
       @post = @comment.post
       @comment.destroy
       render 'api/posts/show'
-    elsif @comment.todo 
-      @todo = @comment.todo 
-      @comment.destroy 
+    elsif @comment.todo
+      @todo = @comment.todo
+      @comment.destroy
       render 'api/todos/show'
     end
   end

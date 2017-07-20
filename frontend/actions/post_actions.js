@@ -34,7 +34,7 @@ export const newPostComment = comment => dispatch => {
     .then( post => dispatch(receivePost(post)));
 };
 
-export const destroyPostComment = commentId => {
+export const destroyPostComment = commentId => dispatch => {
   return destroyComment(commentId)
     .then( post => dispatch(receivePost(post)));
 };

@@ -45,7 +45,7 @@ export const newTodoComment = comment => dispatch => {
     .then(todo => dispatch(receiveTodo(todo)));
 };
 
-export const destroyTodoComment = commentId => {
+export const destroyTodoComment = commentId => dispatch => {
   return destroyComment(commentId)
     .then( todo => dispatch(receiveTodo(todo)));
 };

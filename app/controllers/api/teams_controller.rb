@@ -21,7 +21,6 @@ class Api::TeamsController < ApplicationController
   end
 
   def update
-    # implement Friday
   end
 
   private
