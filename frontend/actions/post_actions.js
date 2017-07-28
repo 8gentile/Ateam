@@ -51,7 +51,7 @@ export const receivePost = post => ({
   post
 });
 
-const removePost = post => ({
+export const removePost = post => ({
   type: REMOVE_POST,
   post
 });
