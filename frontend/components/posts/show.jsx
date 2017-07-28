@@ -90,9 +90,10 @@ class PostShow extends React.Component {
         <section className="comments">
           <ul>{ comments }</ul>
           <NewComment
-            processForm={this.props.createPostComment}
+            processForm={this.props.createComment}
             userId={this.props.userId}
-            parentId={this.props.postId}
+            type={"Post"}
+            typeId={this.props.postId}
             users={this.props.users} />
         </section>
       </section>

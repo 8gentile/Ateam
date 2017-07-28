@@ -1,5 +1,5 @@
 import * as APIUtil from '../utils/post_api_utils';
-import { createPostComment, destroyComment } from '../utils/comment_api_utils';
+import { createComment, destroyComment } from '../utils/comment_api_utils';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const REMOVE_POST = 'REMOVE_POST';
@@ -29,8 +29,8 @@ export const updatePost = post => dispatch => {
     .then( post => dispatch(receivePost(post)));
 };
 
-export const newPostComment = comment => dispatch => {
-  return createPostComment(comment)
+export const newComment = comment => dispatch => {
+  return createComment(comment)
     .then( post => dispatch(receivePost(post)));
 };
 

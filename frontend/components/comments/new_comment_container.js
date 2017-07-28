@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import NewComment from './new_comment';
-import { createComment } from '../../actions/comment_actions';
+import { newComment } from '../../actions/post_actions';
 import allUsers from '../../reducers/selectors'
 
 const mapStateToProps = ({ users, session }, { match }) => ({
@@ -11,7 +11,7 @@ const mapStateToProps = ({ users, session }, { match }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  processForm: (userId, postId) => dispatch(createComment(userId, postId)),
+  processForm: (comment) => dispatch(newComment(comment)),
 });
 
 export default withRouter(connect(

@@ -3,15 +3,16 @@ class Api::CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      if @comment.post
+      case @comment.commentable_type
+      when "Post"
         @post = @comment.post
         render 'api/posts/show'
-      elsif @comment.todo
+      when "Todo"
         @todo = @comment.todo
         render 'api/todos/show'
+      else
+        render @comment.errors.full_messages, status: 422
       end
-    else
-      render @comment.errors.full_messages, status: 422
     end
   end
 
@@ -31,6 +32,6 @@ class Api::CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:body, :user_id, :post_id, :event_id, :todo_id)
+    params.require(:comment).permit(:body, :user_id, :commentable_type, :commentable_id)
   end
 end

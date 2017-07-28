@@ -4,7 +4,6 @@
 # end
 
 json.extract! @post, :id, :title, :body, :user_id, :team_id
-debugger
 json.comments do
   json.array! @post.comments
 end

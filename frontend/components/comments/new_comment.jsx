@@ -8,7 +8,8 @@ export default class NewComment extends React.Component {
     super(props);
     this.state = {
       userId: this.props.userId,
-      parentId: this.props.parentId,
+      typeId: this.props.typeId,
+      type: this.props.type,
       body: "",
     }
 
@@ -20,7 +21,7 @@ export default class NewComment extends React.Component {
     e.preventDefault();
     const comment = merge({}, this.state);
     this.props.processForm(comment)
-      .then( this.setState({body: ""}));
+      .then( this.setState({ body: "" }));
   }
 
   handleQuill(value) {

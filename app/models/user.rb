@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   has_many :todos
 
-  has_many :comments
+  has_many :comments, as: :commentable
 
   has_many :posts
   

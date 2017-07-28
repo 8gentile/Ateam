@@ -1,4 +1,4 @@
-export const createPostComment = ({ body, userId, parentId }) => {
+export const createComment = ({ body, userId, type, typeId }) => {
   return $.ajax({
     method: 'POST',
     url: `/api/comments`,
@@ -6,7 +6,8 @@ export const createPostComment = ({ body, userId, parentId }) => {
       comment: {
         body,
         user_id: userId,
-        post_id: parentId,
+        commentable_type: type,
+        commentable_id: typeId,
       }
     }
   });
