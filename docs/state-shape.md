@@ -1,4 +1,3 @@
-I'm missing errors. Not sure where/how to place them.
 
 {
   - session: {
@@ -9,14 +8,11 @@ I'm missing errors. Not sure where/how to place them.
     errors: []
   },
 
-  // where do memberships or
-  // join tables fit in, if at all?
-
-  - teams: { // is this shape not modular enough? It feels like everything is done through a team...
+  - teams: {
     1: {
       id: 1,
       name: "Ateam",
-      manager_id: 1,  // needed?
+      manager_id: 1,
       todoLists: {
         todoItems: []
       },
@@ -46,7 +42,7 @@ I'm missing errors. Not sure where/how to place them.
       id: 1,
       title: "Be granular",
       done: false,
-      list_id: 1, // is this needed?
+      list_id: 1,
     }
     2: { ... }
   },
@@ -82,7 +78,7 @@ I'm missing errors. Not sure where/how to place them.
       id: 1,
       title: "Time to go to work!",
       body: "Finally, food for thought.",
-      user_id: 1 // needed?
+      user_id: 1
     },
     2: { ... }
   }
