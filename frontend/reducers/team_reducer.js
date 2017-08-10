@@ -15,7 +15,6 @@ const TeamReducer = ( state = _nullTeams, action ) => {
       return merge({}, state, { entities: action.team });
     case REMOVE_TEAM:
       newState = merge({}, state);
-      debugger
       delete newState.entities[action.team.id];
       return newState;
     default:

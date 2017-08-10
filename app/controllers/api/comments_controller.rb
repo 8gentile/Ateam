@@ -17,7 +17,6 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    debugger
     if @comment.post
       @post = @comment.post
       @comment.destroy
