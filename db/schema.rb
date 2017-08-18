@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170702184236) do
+ActiveRecord::Schema.define(version: 20170818231348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,19 +27,15 @@ ActiveRecord::Schema.define(version: 20170702184236) do
   add_index "attendances", ["user_id"], name: "index_attendances_on_user_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
-    t.string   "body",       null: false
-    t.integer  "user_id",    null: false
-    t.integer  "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "event_id"
-    t.integer  "todo_id"
+    t.string   "body"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "comments", ["event_id"], name: "index_comments_on_event_id", using: :btree
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
-  add_index "comments", ["todo_id"], name: "index_comments_on_todo_id", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+  add_index "comments", ["body", "commentable_id", "commentable_type"], name: "index_comments_on_body_and_commentable_id_and_commentable_type", unique: true, using: :btree
+  add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "title",      null: false
