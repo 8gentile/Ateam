@@ -3,13 +3,7 @@ class Api::CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      if @comment.post
-        @post = @comment.post
-        render 'api/posts/show'
-      elsif @comment.todo
-        @todo = @comment.todo
-        render 'api/todos/show'
-      end
+      render 'api/comments'
     else
       render @comment.errors.full_messages, status: 422
     end
