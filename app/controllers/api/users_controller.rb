@@ -10,6 +10,10 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      @invites = Invite.where("email = ?", @user.email)
+      @invites.each do |invite|
+        Membership.create({ user_id: @user.id, team_id: invite.team_id })
+      end
       log_in(@user)
       render 'api/sessions/show'
     else
