@@ -12,8 +12,10 @@ class Api::MembershipsController < ApplicationController
         render json: @membership.errors.full_messages, status: 422
       end
     else
-      # mailgun logic
+      InviteMailer.invitation_email(params[:email][:member][:email]).deliver_now
       Invite.create({email: params[:email][:member][:email], team_id: params[:email][:member][:team_id], pending: true})
+      @users = current_user.teammates
+      render 'api/users/show'
     end
   end
 
