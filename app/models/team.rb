@@ -5,6 +5,7 @@ class Team < ActiveRecord::Base
     foreign_key: :manager_id
 
   has_many :memberships
+  has_many :invites
 
   has_many :members,
     through: :memberships,

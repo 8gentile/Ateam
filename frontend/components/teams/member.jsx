@@ -33,6 +33,7 @@ export default class Member extends React.Component {
 
   render(){
     const { member } = this.props;
+    if (!member) return null;
 
     const removeToggle = () => (
       <section className="remove-member-menu">
